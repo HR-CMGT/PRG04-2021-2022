@@ -35,6 +35,6 @@
 
 ## Links
 
-- [PixiJS](https://pixijs.com)
-- [PixiJS Examples](https://pixijs.io/examples/)
+- [PixiJS](https://pixijs.com) en [Examples](https://pixijs.io/examples/)
+- [PixiJS API Reference](https://api.pixijs.io)
 - [Typescript](https://www.typescriptlang.org)
