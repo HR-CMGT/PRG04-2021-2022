@@ -71,14 +71,8 @@ class Bunny {
 In de `Bunny` class hoef je alleen de code te plaatsen die elk frame uitgevoerd moet worden, dit doe je in de `update()` functie. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken!
 
 ```typescript
-import { bunnyImage } from "./images/bunny.png"
-import { App } from "./App"
-
 class Bunny {
-    private sprite: PIXI.Sprite
-    constructor(app:App){
-        ...
-    }
+    ...
     public update(delta){
         this.sprite.rotation += 0.1 * delta
     }
