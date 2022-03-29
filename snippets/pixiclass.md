@@ -7,7 +7,7 @@ In dit voorbeeld zie je hoe je de [PixiJS Examples](https://pixijs.io/examples/)
 <br>
 <br>
 
-## PixiJS Example: sprite
+## PixiJS Example: sprite 🐰 
 
 De [voorbeeldcode voor een PixiJS sprite](https://pixijs.io/examples/#/sprite/basic.js) is als volgt:
 
@@ -43,28 +43,11 @@ app.ticker.add((delta) => {
 
 # Code verdelen over Game Class en Bunny class
 
-## Stap 1 - sprite aanmaken
+## Stap 1 - Bunny class aanmaken 🐰 
 
 We beginnen met het kijken welke code echt bij een `Bunny` hoort. Dat is zijn *sprite* (de afbeelding), *positie* en *rotatie*. Ook de actie die de `Bunny` elk frame moet uitvoeren (draaien) moet in de `Bunny` class komen.
 
-```typescript
-import { bunnyImage } from "./images/bunny.png"
-
-class Bunny {
-    private sprite: PIXI.Sprite
-    constructor(){
-        this.sprite = PIXI.Sprite.from(bunnyImage)
-        this.sprite.anchor.set(0.5)
-    }
-}
-```
-<br>
-
-## Stap 2 - App variabele gebruiken
-
-Vervolgens zetten we de bunny in het midden van het scherm, en voegen de bunny toe aan de canvas. Om dit te kunnen doen hebben we de `app` variabele nodig. Die kunnen we opvragen via de `constructor`. 
-
-Dit zorgt ervoor dat we niet voor elke bunny een nieuwe app hoeven te maken!
+Om de sprite toe te voegen aan pixi, en om te weten hoe groot het scherm is, hebben we de `app` variabele nodig. Die kunnen we opvragen via de `constructor`. 
 
 ```typescript
 import { bunnyImage } from "./images/bunny.png"
@@ -83,9 +66,9 @@ class Bunny {
 ```
 <br>
 
-## Stap 3 - Animatie
+## Stap 2 - Animatie
 
-In de `Bunny` hoef je alleen de code te plaatsen die elk frame uitgevoerd moet worden, dit doe je in de `update()` functie. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken.
+In de `Bunny` class hoef je alleen de code te plaatsen die elk frame uitgevoerd moet worden, dit doe je in de `update()` functie. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken!
 
 ```typescript
 import { bunnyImage } from "./images/bunny.png"
@@ -106,7 +89,7 @@ class Bunny {
 <br>
 <br>
 
-## Bunny aanmaken in Game Class
+## Bunny toevoegen aan de Game
 
 In een OOP game hebben we altijd één `Game` class waarin de basiselementen van PixiJS al staan, zoals het `canvas` element, de `pixi` application en het aanroepen van de `ticker` functie: 
 
@@ -150,6 +133,3 @@ export class Game {
     }
 }
 ```
-
-
-🐰 Gefeliciteerd! Je hebt een pixiJS voorbeeld omgezet naar OOP!
