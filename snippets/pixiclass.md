@@ -1,15 +1,15 @@
-# PixiJS Examples in een class
+# PixiJS gebruiken in OOP
 
-In dit voorbeeld zie je hoe je de [PixiJS Examples](https://pixijs.io/examples/) kan gebruiken in jouw OOP game.
+In dit voorbeeld zie je hoe je de [PixiJS Examples](https://pixijs.io/examples/) kan toepassen in jouw OOP game.
 
 <br>
 <br>
 <br>
 <br>
 
-## PixiJS Example: sprite 🐰 
+## PixiJS Example: bunny sprite 🐰 
 
-De [voorbeeldcode voor een PixiJS sprite](https://pixijs.io/examples/#/sprite/basic.js) is als volgt:
+De [voorbeeldcode voor een PixiJS bunny sprite](https://pixijs.io/examples/#/sprite/basic.js) is als volgt:
 
 ```javascript
 const app = new PIXI.Application({ backgroundColor: 0x1099bb });
@@ -41,9 +41,7 @@ app.ticker.add((delta) => {
 <br>
 <br>
 
-# Code verdelen over Game Class en Bunny class
-
-## Stap 1 - Bunny class aanmaken 🐰 
+# Bunny class aanmaken 🐰 
 
 We beginnen met het kijken welke code echt bij een `Bunny` hoort. Dat is zijn *sprite* (de afbeelding), *positie* en *rotatie*. Ook de actie die de `Bunny` elk frame moet uitvoeren (draaien) moet in de `Bunny` class komen.
 
@@ -66,7 +64,7 @@ class Bunny {
 ```
 <br>
 
-## Stap 2 - Animatie
+## Animatie
 
 In de `Bunny` class hoef je alleen de code te plaatsen die elk frame uitgevoerd moet worden, dit doe je in de `update()` functie. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken!
 
@@ -83,7 +81,7 @@ class Bunny {
 <br>
 <br>
 
-## Bunny toevoegen aan de Game
+# Bunny toevoegen aan de Game
 
 In een OOP game hebben we altijd één `Game` class waarin de basiselementen van PixiJS al staan, zoals het `canvas` element, de `pixi` application en het aanroepen van de `ticker` functie: 
 
