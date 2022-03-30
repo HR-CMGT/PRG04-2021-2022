@@ -78,12 +78,15 @@ In dit geval is dat alleen een *sprite* (de afbeelding), en de *positie* en *rot
 
 ### Properties
 ```typescript
+import { bunnyImage } from "./images/bunny.png"
+
 class Bunny {
     // property
     sprite:PIXI.Sprite
-    // gebruik "this" om property te vullen
+
     constructor(){
-        this.sprite = PIXI.Sprite.from(...)
+        // gebruik "this.sprite" om de property te vullen
+        this.sprite = PIXI.Sprite.from(bunnyImage)
     }
 
 }
@@ -92,7 +95,7 @@ class Bunny {
 
 ### App variabele
 
-In het PixiJS example zie je dat er een `app` variabele gebruikt wordt, zodat we de sprite aan de pixi canvas kunnen toevoegen. De `app` variabele kunnen we opvragen via de `constructor`. 
+In het PixiJS example zie je dat er een `app` variabele gebruikt wordt. Deze `app` variabele kunnen we opvragen via de `constructor`. 
 
 ```typescript
 import { bunnyImage } from "./images/bunny.png"
@@ -113,7 +116,7 @@ class Bunny {
 
 ### Animatie
 
-In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat in de `Game` class.
+In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
 
 ```typescript
 class Bunny {
@@ -131,7 +134,7 @@ class Bunny {
 
 In de Game class maken we een `property` voor een bunny. Daarin plaatsen we een `new Bunny()`. 
 
-In de `update()` functie van de `Game` kan je de `update()` functies van al je game elementen aanroepen:
+In de `update()` functie van de `Game` kan je de `update()` functies van je bunny aanroepen:
 
 ```typescript
 import { Bunny } from "./Bunny"
@@ -147,6 +150,7 @@ export class Game {
     }
 
     update(delta) {
+        // update van bunny aanroepen
         this.bunny.update(delta)
     }
 }
@@ -158,7 +162,7 @@ export class Game {
 
 # Opdracht
 
-[Bekijk het voorbeeld voor het plaatsen van tekst](https://pixijs.io/examples/#/text/text.js) en voeg dit toe aan je Bunny Game.
+[Bekijk het voorbeeld voor het plaatsen van tekst](https://pixijs.io/examples/#/text/text.js) en voeg een tekst toe aan je Bunny Game.
 
 Maak een `class` met de naam `UI`. 
 
@@ -171,15 +175,7 @@ class UI {
 ```
 
 
-In de constructor plaats je de text code uit het PixiJS voorbeeld. Let op dat `app` al aangemaakt is in `Game`. Deze code kan je dus weglaten:
-
-```typescript
-const app = new PIXI.Application({ backgroundColor: 0x1099bb })
-document.body.appendChild(app.view)
-```
-<Br>
-
-De `app` heb je wel nodig om de tekst aan pixi te kunnen toevoegen, de app vraag je op via de constructor:
+In de constructor plaats je de text code uit het PixiJS voorbeeld. Let op dat `app` al aangemaakt is in `Game`. De app vraag je op via de constructor:
 
 ```typescript
 import { App } from "./App"
@@ -197,7 +193,7 @@ class UI {
 <br>
 <br>
 
-## UI Toevoegen aan Game
+## 🧅 UI Toevoegen aan Game
 
 Als laatste moet je een `new UI()` aanmaken in je `Game` class, op dezelfde manier als de `Bunny`. De UI heeft geen `update` functie.
 

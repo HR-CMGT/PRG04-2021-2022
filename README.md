@@ -27,8 +27,8 @@
 
 ## Code 
 
-- [Startcode PixiJS met Typescript](https://github.com/HR-CMGT/PRG04-2021-2022-startproject)
-- [Hoe zet je PixiJS examples in een class?](./snippets/pixiclass.md)
+- [Startproject PixiJS met Typescript](https://github.com/HR-CMGT/PRG04-2021-2022-startproject)
+- [Hoe zet je PixiJS examples in een OOP class?](./week1/week1-pixi.md)
 
 <br>
 <br>
