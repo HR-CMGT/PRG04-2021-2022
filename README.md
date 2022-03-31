@@ -12,7 +12,7 @@
 | Week | Theorie | Praktijk | Facultatief | Inleveren |
 |------|---------|----------|-----------------|------|
 | 1 | Introductie vak | [Startproject](./week1/week1-setup.md) en [Pixi Basics](./week1/week1-pixi.md) | |
-| 2 | Classes en instances | [Pixi in Classes](./week2/week2-pixi-oop.md), [animatie met de Game Loop](./week2/week2-loop.md) | |
+| 2 | Classes en instances | [Game Class](./week2/week2-pixi-game.md) en [Fish Class](./week2/week2-oop.md) | |
 | 3 | Encapsulation | Collision detection, keyboard controls en [Arrays](./week3/week3-arrays.md) | Spritesheets | |
 | 4 | Composition | Spawning objects, object pooling | Vector Math | Zelf evaluatie |
 | 5 | Game development | Timer, oplopende moeilijkheidsgraad, wisselen tussen scenes | Physics | |

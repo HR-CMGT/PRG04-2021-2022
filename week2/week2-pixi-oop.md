@@ -1,69 +1,22 @@
-# Week 1 - PixiJS toepassen in Classes
+# Week 2 - Fish Class
 
-Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor het werken met Pixi. We gaan [de voorbeeldcode voor een PixiJS Sprite](https://pixijs.io/examples/#/sprite/basic.js) omzetten naar classes.
-
-<br>
-<br>
-<br>
-<br>
-
-# 🕹 Game Class
-
-In een OOP game hebben we altijd één `Game` class waarin het canvas van PixiJS wordt aangemaakt. 
-
-<br>
-
-## Game loop
-
-De `Game` class bevat de ***main game loop***. De `ticker` functie van PixiJS roept `update(delta)` 60 keer per seconde aan. 
-
-```typescript
-import * as PIXI from "pixi.js"
-
-export class Game {
-
-    pixi: PIXI.Application
-
-    constructor() {
-        const container = document.getElementById("container")!
-        this.pixi = new PIXI.Application({ width: 900, height: 500 })
-        container.appendChild(this.pixi.view)
-        this.pixi.ticker.add((delta) => this.update(delta))
-    }
-
-    update(delta) {
-        console.log(`Dit is de Game Loop!`)
-    }
-}
-
-new Game()
-```
-<br>
-<br>
-<br>
-
-
+Je kan de sprite uit het [voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) rechtstreeks in de Game class aanmaken, maar zodra je meer sprites krijgt, die elk ook gedrag en eigenschappen moeten krijgen, dan is het handiger om een aparte class te maken.
 
 <br>
 <br>
 <br>
 
-# 🐠 Fish Class  
+## 🐠 Fish
 
-Je game elementen krijgen elk een eigen class. We maken hier een nieuwe class aan voor een `Fish`, en plaatsen daarin functies en eigenschappen die bij een Fish horen. 
-
-In dit geval is dat een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. Gebruik `this.sprite` om de sprite ook daadwerkelijk aan te maken.
+De Fish heeft een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. Gebruik `this.sprite` om de sprite ook daadwerkelijk aan te maken.
 
 ### Properties
 ```typescript
 import { fishImage } from "./images/fish.png"
 
 class Fish {
-    // property
     sprite:PIXI.Sprite
-
     constructor(){
-        // gebruik "this.sprite" om de property te vullen
         this.sprite = PIXI.Sprite.from(fishImage)
     }
 
@@ -71,11 +24,15 @@ class Fish {
 ```
 <Br>
 
-## Stage addChild
+## Sprite toevoegen aan canvas?
 
-In de PixiJS examples zie je dat sprites aan de canvas worden toegevoegd met `app.stage.addChild()`
+In de `Game` class zag je dat sprites aan de canvas worden toegevoegd met `this.pixi.stage.addChild()`
 
-Omdat onze Pixi canvas in de `Game` staat, hoeven we niet in de Bunny nog een keer een canvas aan te maken. In plaats daarvan gebruiken we een `game` variabele in de constructor.
+Omdat we nu in een aparte class zijn, moeten we dat doen via de `game` variabele die we via de `constructor` kunnen opvragen.
+
+### Animatie
+
+In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
 
 ```typescript
 import { fishImage } from "./images/fish.png"
@@ -87,24 +44,10 @@ class Fish {
     constructor(game:Game){
         this.sprite = PIXI.Sprite.from(fishImage)
         this.sprite.anchor.set(0.5)
-
-        // nu kan je game.pixi gebruiken om het scherm te meten
-        // en om addChild uit te voeren
         this.sprite.x = game.pixi.screen.width / 2
         this.sprite.y = game.pixi.screen.height / 2
         game.pixi.stage.addChild(this.sprite)
     }
-}
-```
-<br>
-
-### Animatie
-
-In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
-
-```typescript
-class Fish {
-    ...
     update(delta){
         this.sprite.rotation += 0.1 * delta
     }
@@ -172,15 +115,22 @@ Zet het aquarium met vissen en bubbles van week 1 om naar Object Oriented Code. 
 
 Maak de `Fishes` [clickable met de voorbeelcode van PixiJS](https://pixijs.io/examples/#/interaction/click.js). 
 
-```javascript
-this.sprite.interactive = true;
-this.sprite.buttonMode = true;
-this.sprite.on('pointerdown', () => this.onClick())
-```
 Als je op een Fish klikt, verander je het plaatje in een skelet! Maak de `onClick` functie waarin de sprite verandert.
 
+Plaats onderstaande code snippets op de juiste plek in de `Fish` class:
+
 ```javascript
+// skelet plaatje
 import { skeletonImage } from "./images/bones.png"
-this.sprite = PIXI.Sprite.from(skeletonImage)
+
+// sprite interactief maken
+this.sprite.interactive = true
+this.sprite.buttonMode = true
+this.sprite.on('pointerdown', () => this.onClick())
+
+// de class krijgt een onclick functie
+onClick() {
+    this.sprite = PIXI.Sprite.from(skeletonImage)
+}
 ```
 
