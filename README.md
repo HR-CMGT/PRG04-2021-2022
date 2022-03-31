@@ -12,8 +12,8 @@
 | Week | Theorie | Praktijk | Facultatief | Inleveren |
 |------|---------|----------|-----------------|------|
 | 1 | Introductie vak | [Startproject](./week1/week1-setup.md) en [Pixi Basics](./week1/week1-pixi.md) | |
-| 2 | Classes en instances | [Game Loop en animatie](./week2/week2-loop.md) en [Arrays](./week2/week2-arrays.md) | |
-| 3 | Encapsulation | Collision detection en keyboard controls | Spritesheets | |
+| 2 | Classes en instances | [Pixi in Classes](./week2/week2-pixi-oop.md), [animatie met de Game Loop](./week2/week2-loop.md) | |
+| 3 | Encapsulation | Collision detection, keyboard controls en [Arrays](./week3/week3-arrays.md) | Spritesheets | |
 | 4 | Composition | Spawning objects, object pooling | Vector Math | Zelf evaluatie |
 | 5 | Game development | Timer, oplopende moeilijkheidsgraad, wisselen tussen scenes | Physics | |
 | 6 | Inheritance | Gameobject | PixiJS Advanced | Peer review |
@@ -28,14 +28,20 @@
 ## Code 
 
 - [Startproject PixiJS met Typescript](https://github.com/HR-CMGT/PRG04-2021-2022-startproject)
-- [Hoe zet je PixiJS examples in een OOP class?](./week1/week1-pixi.md)
+- [PixiJS examples omzetten naar classes](./snippets/pixi-oop.md)
 
 <br>
 <br>
 <br>
 
-## Links
+## Lesonderwerpen
 
 - [PixiJS](https://pixijs.com) en [Examples](https://pixijs.io/examples/)
 - [PixiJS API Reference](https://api.pixijs.io)
 - [Typescript](https://www.typescriptlang.org)
+
+<br>
+
+## Behulpzame links
+
+- [Pixi Text Style Designer](https://pixijs.io/pixi-text-style/#)

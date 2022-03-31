@@ -14,7 +14,7 @@
 
 Met `npm run start` start je de development omgeving. Dit hoef je maar één keer te doen. Als je wil stoppen druk je op `CTRL+C`.
 
-Test of de code in `app.ts` werkt:
+Test of de code in `game.ts` werkt:
 
 ```javascript
 import * as PIXI from 'pixi.js'
@@ -30,24 +30,10 @@ app.stage.addChild(sprite)
 <br>
 <br>
 
-## Opdracht
 
-Maak een aquarium met vissen en bubbles zoals in deze afbeelding. 
+# Opdracht 
 
-![fishes](./opdracht.jpg)
-
-- Je kan een `for` loop en `Math.random()` gebruiken om meerdere vissen op random posities te plaatsen.
-- Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur.
-
-<br>
-<br>
-<br>
-
-# Opdracht deel 2
-
-In deel 2 gaan we kijken hoe we de PixiJS voorbeelden kunnen gebruiken in onze Object Oriented games.
-
-[Ga naar deel 2](./week1-pixi.md)
+[Bekijk een aantal Pixi voorbeelden en maak het pixel aquarium](./week1-pixi.md)
 
 <br>
 <br>
