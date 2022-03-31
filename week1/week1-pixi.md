@@ -64,7 +64,7 @@ app.ticker.add((delta) => {
 <br>
 <br>
 
-## ⏱ Text
+## 💬 Text
 
 https://pixijs.io/examples/#/text/text.js
 
