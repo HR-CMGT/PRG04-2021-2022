@@ -88,14 +88,11 @@ export class Game {
 
 # Opdracht
 
-Plaats een aantal vissen, bubbles en de achtergrond afbeelding in de game class.
+Plaats ***vier vissen, vier bubbles en één achtergrond afbeelding*** in de game class. 
 
-![fishes](../week1/opdracht.jpg)
-
-- Je hoeft nog geen animatie toe te voegen, je kan de `update` functie in `Game` dus even leeg laten.
-- Je kan een `for` loop gebruiken om meerdere vissen aan te maken in de `Game` class.
 - Je kan `Math.random()` gebruiken om de x en y posities random te maken.
 - Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur.
+- Kan je de vissen en bubbles laten bewegen?
 
 <br>
 <br>
@@ -103,6 +100,38 @@ Plaats een aantal vissen, bubbles en de achtergrond afbeelding in de game class.
 
 # Opdracht
 
-Als het je lukt om met de `Game` class te werken, dan kan je verder met deel 2. Hierin gaan we de `Fish` in een eigen class zetten.
+![fishes](../week1/opdracht.jpg)
 
-[Verder met deel 2](./week2-pixi-oop.md)
+Als je voor elke sprite een property aanmaakt, dan wordt het snel onhandig om heel veel sprites te hebben. Daarom maken we de sprite property een array. Let op dat de property nu `sprites` heet.
+
+```javascript
+class Game {
+    sprites : PIXI.Sprite[] = []
+}
+```
+Gebruik nu een `for` loop in de `constructor` om meerdere sprites tegelijk aan te maken. Gebruik `this.sprites.push(...)` om de sprite in de array te zetten.
+
+In de `update` functie kan je door je array heen loopen, om elke sprite te verplaatsen:
+
+```javascript
+class Game {
+    update(delta) {
+        for(let sprite of this.sprites){
+            sprite.x += 1 * delta
+        }
+    }
+}
+```
+
+Maak de afbeelding na met animerende bubbles en sprites. Kan je de bubbles omhoog laten bewegen en de fishes naar links?
+
+<br>
+<br>
+<br>
+
+# Opdracht
+
+Als het je is gelukt om sprites te tonen in de Game class, dan kan je met behulp van de PixiJS voorbeelden ook een Tekst en een Graphic in je Game class plaatsen. 
+
+- [PixiJS Text](https://pixijs.io/examples/#/text/text.js)
+- [PixiJS Graphic](https://pixijs.io/examples/#/graphics/simple.js)

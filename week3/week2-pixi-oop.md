@@ -1,12 +1,14 @@
-# Week 2 - Fish Class
+# Week 3 - Fish Class
 
-Je kan de sprite uit het [voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) rechtstreeks in de Game class aanmaken, maar zodra je meer sprites krijgt, die elk ook gedrag en eigenschappen moeten krijgen, dan is het handiger om een aparte class te maken.
+In week 2 hebben we alle sprites uit het [voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) rechtstreeks in de Game class aangemaakt.
+
+Zodra je game elementen meer gedrag en eigenschappen krijgen, dan is het handiger om er een aparte class voor te maken.
 
 <br>
 <br>
 <br>
 
-## 🐠 Fish
+## 🐠 Fish Class
 
 De Fish heeft een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. Gebruik `this.sprite` om de sprite ook daadwerkelijk aan te maken.
 
@@ -24,15 +26,11 @@ class Fish {
 ```
 <Br>
 
-## Sprite toevoegen aan canvas?
+## 😱 Help! Het canvas staat in de Game class!
 
 In de `Game` class zag je dat sprites aan de canvas worden toegevoegd met `this.pixi.stage.addChild()`
 
 Omdat we nu in een aparte class zijn, moeten we dat doen via de `game` variabele die we via de `constructor` kunnen opvragen.
-
-### Animatie
-
-In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
 
 ```typescript
 import { fishImage } from "./images/fish.png"
@@ -53,12 +51,15 @@ class Fish {
     }
 }
 ```
+### 🎬 Animatie
+
+In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
 
 <br>
 <br>
 <br>
 
-# Fish toevoegen aan de Game
+# Fish toevoegen aan de Game Class
 
 In de Game class maken we een `property` voor een Fish. Daarin plaatsen we een `new Fish()`. In de `update()` functie kan je de Fish updaten. Je `Game` class gaat er dan als volgt uit zien:
 ```typescript
@@ -117,7 +118,7 @@ Maak de `Fishes` [clickable met de voorbeelcode van PixiJS](https://pixijs.io/ex
 
 Als je op een Fish klikt, verander je het plaatje in een skelet! Maak de `onClick` functie waarin de sprite verandert.
 
-Plaats onderstaande code snippets op de juiste plek in de `Fish` class:
+🤔 Plaats onderstaande code snippets op de juiste plek in de `Fish` class:
 
 ```javascript
 // skelet plaatje
