@@ -70,12 +70,38 @@ class Game {
 <br>
 <br>
 
-## Opdracht
+# Opdracht
 
 ![fishes](../week1/opdracht.jpg)
 
-- Zet je fish aquarium code van week 1 om naar Object Oriented code. Maak een `class` aan voor een `Fish`, `Bubble` en een class voor de `Background`. 
-- Maak één keer een `new Background()` aan in de `Game`
-- Gebruik `arrays` en `for` loops om meerdere vissen en bubbles aan te maken in de `Game` class.
+- Plaats de Fishes en Bubbles in een array in de Game class
 - Geef de `Fish` en `Bubble` classes een `update` functie om te animeren (zie het voorbeeld van de Bunny class).
 - Gebruik een `for of` loop om de `update` functie van de vissen en bubbles aan te roepen. 
+
+<Br>
+<br>
+<br>
+
+# Opdracht
+
+Maak de `Fishes` [clickable met de voorbeelcode van PixiJS](https://pixijs.io/examples/#/interaction/click.js). 
+
+Als je op een Fish klikt, verander je het plaatje in een skelet! Maak de `onClick` functie waarin de sprite verandert.
+
+🤔 Plaats onderstaande code snippets op de juiste plek in de `Fish` class:
+
+```javascript
+// skelet plaatje
+import { skeletonImage } from "./images/bones.png"
+
+// sprite interactief maken
+this.sprite.interactive = true
+this.sprite.buttonMode = true
+this.sprite.on('pointerdown', () => this.onClick())
+
+// de class krijgt een onclick functie
+onClick() {
+    this.sprite = PIXI.Sprite.from(skeletonImage)
+}
+```
+
