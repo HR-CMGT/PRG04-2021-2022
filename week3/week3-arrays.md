@@ -84,24 +84,25 @@ class Game {
 
 # Opdracht
 
-Maak de `Fishes` [clickable met de voorbeelcode van PixiJS](https://pixijs.io/examples/#/interaction/click.js). 
-
-Als je op een Fish klikt, verander je het plaatje in een skelet! Maak de `onClick` functie waarin de sprite verandert.
-
-🤔 Plaats onderstaande code snippets op de juiste plek in de `Fish` class:
+Maak de `Fishes` clickable. Pas de [voorbeelcode van PixiJS](https://pixijs.io/examples/#/interaction/click.js) toe in een Class:
 
 ```javascript
 // skelet plaatje
 import { skeletonImage } from "./images/bones.png"
 
-// sprite interactief maken
-this.sprite.interactive = true
-this.sprite.buttonMode = true
-this.sprite.on('pointerdown', () => this.onClick())
+class Fish {
+    constructor() {
+        ...
+        // sprite interactief maken
+        this.sprite.interactive = true
+        this.sprite.buttonMode = true
+        this.sprite.on('pointerdown', () => this.onClick())
+    }
 
-// de class krijgt een onclick functie
-onClick() {
-    this.sprite = PIXI.Sprite.from(skeletonImage)
+    // de class krijgt een onclick functie
+    onClick() {
+        console.log("je klikt op een vis")
+    }
 }
 ```
-
+Kan je de texture van de sprite vervangen door het skelet plaatje als je op de vis klikt?

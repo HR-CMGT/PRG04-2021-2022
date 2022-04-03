@@ -27,13 +27,12 @@ export class Game {
     pixi: PIXI.Application
 
     constructor() {
-        const container = document.getElementById("container")!
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
-        container.appendChild(this.pixi.view)
+        document.body.appendChild(this.pixi.view)
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
-    update(delta) {
+    update(delta : number) {
         console.log(`Dit is de Game Loop!`)
     }
 }
@@ -42,19 +41,19 @@ new Game()
 ```
 ## Game loop
 
-De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 60 keer per seconde aangeroepen. 
+De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 60 keer per seconde aangeroepen. Omdat we met ***Typescript*** werken moet je aangeven dat `delta` een `number` is.
 
 <br>
 <br>
 <br>
 
-# 🐠 Sprite voorbeeld  
+# 🐠 Sprites  
 
-We gaan het [sprite voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) in de `Game` class plaatsen!
+We gaan het [PixiJS Sprite voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) in de `Game` class plaatsen!
 
 ```typescript
 import * as PIXI from "pixi.js"
-import { fishImage } from "./images/fish.png"
+import fishImage from "./images/fish.png"
 
 export class Game {
 
@@ -63,22 +62,23 @@ export class Game {
     sprite:PIXI.Sprite
 
     constructor() {
-        const container = document.getElementById("container")!
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
-        container.appendChild(this.pixi.view)
-        this.pixi.ticker.add((delta) => this.update(delta))
+        document.body.appendChild(this.pixi.view)
 
         // sprite aanmaken
         this.sprite = PIXI.Sprite.from(fishImage)
         this.sprite.anchor.set(0.5)
-        this.sprite.x = game.pixi.screen.width / 2
-        this.sprite.y = game.pixi.screen.height / 2
+        this.sprite.x = this.pixi.screen.width / 2
+        this.sprite.y = this.pixi.screen.height / 2
         this.pixi.stage.addChild(this.sprite)
+
+        // start de game loop
+        this.pixi.ticker.add((delta) => this.update(delta))
     }
 
-    update(delta) {
+    update(delta : number) {
         // sprite animatie 60fps
-        this.sprite.rotation += 0.1 * delta
+        this.sprite.rotation -= 0.1 * delta
     }
 }
 ```
@@ -88,11 +88,21 @@ export class Game {
 
 # Opdracht
 
-Plaats ***vier vissen, vier bubbles en één achtergrond afbeelding*** in de game class. 
+![two](../week1/twofishes.png)
 
-- Je kan `Math.random()` gebruiken om de x en y posities random te maken.
-- Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur.
-- Kan je de vissen en bubbles laten bewegen?
+Plaats ***twee vissen, twee bubbles en één achtergrond afbeelding*** in de game class. 
+
+- Je kan `Math.random()` gebruiken om de start `x,y` posities van de vissen en bubbles random te maken.
+- Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur van de vis.
+- Laat de vissen naar links bewegen en de bubbles naar boven.
+
+<Br>
+<br>
+<br>
+
+# Opdracht
+
+Als de vissen links uit beeld zwemmen, moeten ze rechts weer in beeld verschijnen. Als de bubbles boven uit beeld verdwijnen, moeten ze onderin beeld weer verschijnen.
 
 <br>
 <br>
@@ -100,38 +110,4 @@ Plaats ***vier vissen, vier bubbles en één achtergrond afbeelding*** in de gam
 
 # Opdracht
 
-![fishes](../week1/opdracht.jpg)
-
-Als je voor elke sprite een property aanmaakt, dan wordt het snel onhandig om heel veel sprites te hebben. Daarom maken we de sprite property een array. Let op dat de property nu `sprites` heet.
-
-```javascript
-class Game {
-    sprites : PIXI.Sprite[] = []
-}
-```
-Gebruik nu een `for` loop in de `constructor` om meerdere sprites tegelijk aan te maken. Gebruik `this.sprites.push(...)` om de sprite in de array te zetten.
-
-In de `update` functie kan je door je array heen loopen, om elke sprite te verplaatsen:
-
-```javascript
-class Game {
-    update(delta) {
-        for(let sprite of this.sprites){
-            sprite.x += 1 * delta
-        }
-    }
-}
-```
-
-Maak de afbeelding na met animerende bubbles en sprites. Kan je de bubbles omhoog laten bewegen en de fishes naar links?
-
-<br>
-<br>
-<br>
-
-# Opdracht
-
-Als het je is gelukt om sprites te tonen in de Game class, dan kan je met behulp van de PixiJS voorbeelden ook een Tekst en een Graphic in je Game class plaatsen. 
-
-- [PixiJS Text](https://pixijs.io/examples/#/text/text.js)
-- [PixiJS Graphic](https://pixijs.io/examples/#/graphics/simple.js)
+[Ga verder met deel 2: een array van sprites](./week2-pixi-sprites.md)
