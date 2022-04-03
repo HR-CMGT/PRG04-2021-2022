@@ -10,13 +10,13 @@ Zodra je game elementen meer gedrag en eigenschappen krijgen, dan is het handige
 
 ## 🐠 Fish Class
 
-De Fish heeft een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. Gebruik `this.sprite` om de sprite ook daadwerkelijk aan te maken.
+De Fish heeft een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. Gebruik `this.sprite` om de sprite aan te maken en aan te passen.
 
-### Properties
 ```typescript
-import { fishImage } from "./images/fish.png"
+import * as PIXI from "pixi.js"
+import fishImage from "./images/fish.png"
 
-class Fish {
+export class Fish {
     sprite:PIXI.Sprite
     constructor(){
         this.sprite = PIXI.Sprite.from(fishImage)
@@ -25,6 +25,8 @@ class Fish {
 }
 ```
 <Br>
+<br>
+<br>
 
 ## 😱 Help! Het canvas staat in de Game class!
 
@@ -33,10 +35,10 @@ In de `Game` class zag je dat sprites aan de canvas worden toegevoegd met `this.
 Omdat we nu in een aparte class zijn, moeten we dat doen via de `game` variabele die we via de `constructor` kunnen opvragen.
 
 ```typescript
-import { fishImage } from "./images/fish.png"
+import fishImage from "./images/fish.png"
 import { Game } from "./Game"
 
-class Fish {
+export class Fish {
     sprite: PIXI.Sprite
     // plaats de game variabele in de constructor
     constructor(game:Game){
@@ -46,7 +48,7 @@ class Fish {
         this.sprite.y = game.pixi.screen.height / 2
         game.pixi.stage.addChild(this.sprite)
     }
-    update(delta){
+    update(delta : number){
         this.sprite.rotation += 0.1 * delta
     }
 }
@@ -61,7 +63,12 @@ In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠�
 
 # Fish toevoegen aan de Game Class
 
-In de Game class maken we een `property` voor een Fish. Daarin plaatsen we een `new Fish()`. In de `update()` functie kan je de Fish updaten. Je `Game` class gaat er dan als volgt uit zien:
+In de Game class maken we een `property` voor een Fish. Daarin plaatsen we een `new Fish()`. In de `update()` functie kan je de Fish updaten. 
+
+> ⚠️ Zowel `Game` als `Fish` hebben het `export` keyword nodig, zodat ze elkaar kunnen vinden.
+
+Je `Game` class gaat er dan als volgt uit zien:
+
 ```typescript
 import * as PIXI from "pixi.js"
 import { Fish } from "./Fish"

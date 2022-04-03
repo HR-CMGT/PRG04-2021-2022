@@ -88,7 +88,7 @@ Maak de `Fishes` clickable. Pas de [voorbeelcode van PixiJS](https://pixijs.io/e
 
 ```javascript
 // skelet plaatje
-import { skeletonImage } from "./images/bones.png"
+import skeletonImage from "./images/bones.png"
 
 class Fish {
     constructor() {
