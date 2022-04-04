@@ -31,7 +31,8 @@
 
 - [PixiJS en Classes](./snippets/pixi-oop.md)
 - [Click Event](./week3/week3-click.md)
-- [Keyboard Controls]()
+- [Keyboard Controls](./snippets/keyboard.md)
+- [Collisions](./snippets/collision.md)
 - [Image Preloader](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
 - [🎮 Controller aansluiten]()

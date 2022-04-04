@@ -1,6 +1,6 @@
 # Preloader
 
-Als je heel veel images wil preloaden voordat de game uberhaupt begint, dan kan je `PIXI.Loader` gebruiken:
+Als je heel veel images wil preloaden voordat de game überhaupt begint, dan kan je `PIXI.Loader` gebruiken:
 
 ```typescript
 import * as PIXI from "pixi.js"
@@ -19,7 +19,7 @@ export class Game {
         // image preloader
         this.pixi.loader
             .add("fish", fishImage)
-            .add("bubble", bubImage)
+            .add("bubble", bubbleImage)
             .add("bones", bonesImage)
             .add("water", waterImage)
         
@@ -45,6 +45,4 @@ export class Game {
         this.pixi.stage.addChild(bubble)
     }
 }
-
-new Game()
 ```
