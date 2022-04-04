@@ -21,27 +21,28 @@
 | 8 | Game development | Vraaggestuurd | | Eindevaluatie |
 | 9 | Onbegeleid zelfstudie | Onbegeleid zelfstudie | | Gaming Building Block |
 
-<br>
-<br>
-<br>
 
-## Code 
-
-- [Startproject PixiJS met Typescript](https://github.com/HR-CMGT/PRG04-2021-2022-startproject)
-- [PixiJS examples omzetten naar classes](./snippets/pixi-oop.md)
 
 <br>
 <br>
 <br>
 
-## Lesonderwerpen
+## Code Snippets
 
+- [PixiJS en Classes](./snippets/pixi-oop.md)
+- [Click Event]()
+- [Keyboard Controls]()
+- [Image Preloader]()
+- [Scrolling Background]()
+
+<br>
+<br>
+<br>
+
+## Links
+
+- [Startproject PRG4](https://github.com/HR-CMGT/PRG04-2021-2022-startproject)
 - [PixiJS](https://pixijs.com) en [Examples](https://pixijs.io/examples/)
 - [PixiJS API Reference](https://api.pixijs.io)
 - [Typescript](https://www.typescriptlang.org)
-
-<br>
-
-## Behulpzame links
-
 - [Pixi Text Style Designer](https://pixijs.io/pixi-text-style/#)
