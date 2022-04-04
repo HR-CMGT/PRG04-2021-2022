@@ -30,10 +30,11 @@
 ## Code Snippets
 
 - [PixiJS en Classes](./snippets/pixi-oop.md)
-- [Click Event]()
+- [Click Event](./week3/week3-click.md)
 - [Keyboard Controls]()
-- [Image Preloader]()
-- [Scrolling Background]()
+- [Image Preloader](./snippets/preloader.md)
+- [Scrolling Background](./snippets/scrolling.md)
+- [🎮 Controller aansluiten]()
 
 <br>
 <br>
