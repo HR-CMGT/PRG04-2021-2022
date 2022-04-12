@@ -24,9 +24,17 @@ Je kan de TilingSprite toevoegen aan de game door de texture, breedte en hoogte 
 
 *GAME.TS*
 ```typescript
-this.bg = new Background(this.pixi.loader.resources["background"].texture!, 
-    this.pixi.screen.width, this.pixi.screen.height)
-this.pixi.stage.addChild(this.bg)
+class Game {
+
+    addBackground() {
+        this.bg = new Background(this.pixi.loader.resources["background"].texture!, this.pixi.screen.width, this.pixi.screen.height)
+        this.pixi.stage.addChild(this.bg)
+    }
+
+    update() {
+        this.bg.update()
+    }
+}
 ```
 
 <br>

@@ -3,30 +3,30 @@
 Om te testen of twee sprites (rechthoeken) elkaar overlappen kan je de `getBounds()` functie van een sprite gebruiken:
 
 ```typescript
-import blockImage from "../images/block3.png"
+import { Block } from "./block.ts"
 
 export class Game {
 
-    blockOne: PIXI.Sprite
-    blockTwo: PIXI.Sprite
+    blockOne: Block
+    blockTwo: Block
 
     constructor() {
-        this.blockOne = PIXI.Sprite.from(blockImage)
-        this.blockTwo = PIXI.Sprite.from(blockImage)
+        this.blockOne = new Block(blockTexture)
+        this.blockTwo = new Block(blockTexture)
     }
 
     update(delta:number) {
-        this.blockOne.x += 1 * delta
-        this.blockTwo.x += 3 * delta
+        this.blockOne.update()
+        this.blockTwo.update()
 
         if(this.collision(this.blockOne, this.blockTwo)){
             console.log("the blocks touch each other ❤️")
         }
     }
 
-    collision(spriteOne:PIXI.Sprite, spriteTwo:PIXI.Sprite) {
-        const bounds1 = spriteOne.getBounds()
-        const bounds2 = spriteTwo.getBounds()
+    collision(blockOne:PIXI.Sprite, blockTwo:PIXI.Sprite) {
+        const bounds1 = blockOne.getBounds()
+        const bounds2 = blockTwo.getBounds()
 
         return bounds1.x < bounds2.x + bounds2.width
             && bounds1.x + bounds1.width > bounds2.x

@@ -10,27 +10,21 @@ De snelheid wordt weer 0 als de toets wordt losgelaten.
 
 ```typescript
 import * as PIXI from "pixi.js"
-import shipImage from "../images/ship.png"
-import { Game } from "./Game"
 
-export class Ship {
+export class Ship extends PIXI.Sprite {
     xspeed = 0
     yspeed = 0
-    sprite : PIXI.Sprite
-    game : Game
 
-    constructor(game : Game) {
-        this.game = game
-        this.sprite = PIXI.Sprite.from(shipImage)
-        this.game.pixi.stage.addChild(this.sprite)
+    constructor(texture: PIXI.Texture) {
+        super(texture)
 
         window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
         window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
     }
     
     update() {
-        this.sprite.x += this.xspeed
-        this.sprite.y += this.yspeed
+        this.x += this.xspeed
+        this.y += this.yspeed
     }
 
     shoot(){

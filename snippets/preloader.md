@@ -1,12 +1,17 @@
 # Preloader
 
-Als je heel veel images wil preloaden voordat de game überhaupt begint, dan kan je `PIXI.Loader` gebruiken:
+Om met sprites te werken is het eigenlijk noodzakelijk om alle afbeeldingen in te laden voordat je game begint. Hiervoor kan je `PIXI.Loader` gebruiken:
 
 ```typescript
 import * as PIXI from "pixi.js"
+// png images
 import fishImage from "./images/fish.png"
 import waterImage from "./images/water.jpg"
 import bubbleImage from "./images/bubble.png"
+// sprite classes
+import { Fish } from "./Fish" 
+import { Water } from "./Water" 
+import { Bubble } from "./Bubble" 
 
 export class Game {
 
@@ -20,7 +25,6 @@ export class Game {
         this.pixi.loader
             .add("fish", fishImage)
             .add("bubble", bubbleImage)
-            .add("bones", bonesImage)
             .add("water", waterImage)
         
         this.pixi.loader.onProgress.add((p:PIXI.Loader) => this.showProgress(p))
@@ -35,13 +39,13 @@ export class Game {
     doneLoading(){
         console.log("preloader finished")
 
-        let bg = PIXI.Sprite.from(this.pixi.loader.resources["water"].texture!)
-        this.pixi.stage.addChild(this.sprite)
+        let bg = new Water(this.pixi.loader.resources["water"].texture!)
+        this.pixi.stage.addChild(bg)
 
-        let fish = PIXI.Sprite.from(this.pixi.loader.resources["fish"].texture!)
+        let fish = new Fish(this.pixi.loader.resources["fish"].texture!)
         this.pixi.stage.addChild(fish)
 
-        let bubble = PIXI.Sprite.from(this.pixi.loader.resources["bubble"].texture!)
+        let bubble = new Bubble(this.pixi.loader.resources["bubble"].texture!)
         this.pixi.stage.addChild(bubble)
     }
 }

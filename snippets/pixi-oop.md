@@ -1,6 +1,6 @@
 # PixiJS voorbeelden gebruiken in OOP
 
-Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor het werken met Pixi. Op deze pagina leer je hoe je deze voorbeelden kan toepassen in jouw OOP game. Je kan dit gebruiken voor alle PixiJS examples!
+Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor het werken met Pixi. Op deze pagina zie je hoe je deze voorbeelden kan toepassen in jouw OOP game. 
 
 <br>
 <br>
@@ -41,11 +41,10 @@ app.ticker.add((delta) => {
 <br>
 <br>
 
-# Omzetten naar Object Oriented Programming
+# 🕹 Game Class
 
-## 🕹 Game Class
+In een OOP game hebben we altijd één `Game` class waarin de basiselementen van PixiJS al staan, zoals het `canvas` element, de `pixi` application en het aanroepen van de `ticker` functie. 
 
-In een OOP game hebben we altijd één `Game` class waarin de basiselementen van PixiJS al staan, zoals het `canvas` element, de `pixi` application en het aanroepen van de `ticker` functie. Deze class is altijd hetzelfde: 
 
 ```typescript
 import * as PIXI from "pixi.js"
@@ -55,9 +54,8 @@ export class Game {
     pixi: PIXI.Application
 
     constructor() {
-        const container = document.getElementById("container")!
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
-        container.appendChild(this.pixi.view)
+        document.body.appendChild(this.pixi.view)
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
@@ -70,62 +68,32 @@ export class Game {
 <br>
 <br>
 
-## 🐰 Bunny Class  
+# 🐰 Bunny Class  
 
-We maken een class aan voor de `Bunny`, en plaatsen daarin functies en eigenschappen die echt bij de Bunny horen, en niet bij de overkoepelende game. 
+We maken een class aan voor de `Bunny`, en plaatsen daarin functies en eigenschappen die bij de Bunny horen. Voor nu is dat alleen de positie en het middelpunt.
 
-In dit geval is dat alleen een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. De property kan je vervolgens vullen via `this.sprite`.
+In de `update()` functie plaats je de code die elk animatie frame uitgevoerd moet worden.
 
 ### Properties
 ```typescript
-import { bunnyImage } from "./images/bunny.png"
+import * as PIXI from "pixi.js"
 
-class Bunny {
-    // property
-    sprite:PIXI.Sprite
+class Bunny extends PIXI.Sprite {
 
-    constructor(){
-        // gebruik "this.sprite" om de property te vullen
-        this.sprite = PIXI.Sprite.from(bunnyImage)
+    constructor(texture: PIXI.Texture) {
+        super(texture)
+        this.anchor.set(0.5)
+        this.x = 100
+        this.y = 100
     }
 
-}
-```
-<Br>
-
-### App variabele
-
-In het PixiJS example zie je dat er een `app` variabele gebruikt wordt. Deze `app` variabele kunnen we opvragen via de `constructor`. 
-
-```typescript
-import { bunnyImage } from "./images/bunny.png"
-import { App } from "./App"
-
-class Bunny {
-    sprite: PIXI.Sprite
-    constructor(app:App){
-        this.sprite = PIXI.Sprite.from(bunnyImage)
-        this.sprite.anchor.set(0.5)
-        this.sprite.x = app.screen.width / 2
-        this.sprite.y = app.screen.height / 2
-        app.stage.addChild(this.sprite)
-    }
-}
-```
-<br>
-
-### Animatie
-
-In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
-
-```typescript
-class Bunny {
-    ...
     update(delta){
         this.sprite.rotation += 0.1 * delta
     }
+
 }
 ```
+
 
 <br>
 <br>
@@ -133,25 +101,46 @@ class Bunny {
 
 ## Bunny toevoegen aan de Game
 
-In de Game class maken we een `property` voor een bunny. Daarin plaatsen we een `new Bunny()`. 
+Met de pixi preloader laden we eerst de `textures` voor alle sprites.
 
-In de `update()` functie van de `Game` kan je de `update()` functies van je bunny aanroepen:
+In de Game class maken we een `property` voor een bunny. Daarin plaatsen we een `new Bunny()`. Je moet de texture meegeven. Vervolgens plaats je de sprite in het pixi canvas met de `addChild` functie.
+
+In de `update()` functie van de `Game` kan je de `update()` functie van de bunny aanroepen:
 
 ```typescript
+import bunnyImage from "./images/bunny.png"
+import enemyImage from "./images/enemy.png"
 import { Bunny } from "./Bunny"
 
 export class Game {
 
-    // property voor een bunny
     bunny: Bunny
 
     constructor() {
-        // bunny aanmaken
-        this.bunny = new Bunny(this)
+          // load all textures for the whole game
+        this.pixi.loader
+            .add("bunnytexture", bunnyImage)
+            .add("enemytexture", enemyImage)
+
+        this.pixi.loader.onProgress.add((p: PIXI.Loader) => this.showProgress(p))
+        this.pixi.loader.onComplete.add(() => this.doneLoading())
+        this.pixi.loader.load()
+    }
+
+    showProgress(p: PIXI.Loader) {
+        console.log(`Loading ${p.progress}%`)
+    }
+
+    doneLoading() {
+        console.log("preloader finished")
+
+        // create the bunny
+        this.bunny = new Bunny(this.pixi.loader.resources["bunny"].texture!)
+        this.pixi.stage.addChild(this.bunny)
     }
 
     update(delta) {
-        // update van bunny aanroepen
+        // update the bunny 
         this.bunny.update(delta)
     }
 }
