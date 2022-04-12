@@ -1,19 +1,9 @@
 # Collision
 
-Om te testen of twee sprites (rechthoeken) elkaar overlappen kan je de `getBounds()` functie van een sprite gebruiken:
+Om te testen of twee sprites (rechthoeken) elkaar overlappen kan je de `getBounds()` functie van een sprite gebruiken. In dit geval zijn er twee sprites, `blockOne` en `blockTwo`.
 
 ```typescript
-import { Block } from "./block.ts"
-
 export class Game {
-
-    blockOne: Block
-    blockTwo: Block
-
-    constructor() {
-        this.blockOne = new Block(blockTexture)
-        this.blockTwo = new Block(blockTexture)
-    }
 
     update(delta:number) {
         this.blockOne.update()
@@ -36,4 +26,4 @@ export class Game {
 }
 
 ```
-> ⚠️ Dit voorbeeld toont alleen de collision code, maar niet het aanmaken van het pixi canvas of het aanroepen van de ticker. Zie daarvoor de [default game class](../week2/week2-pixi-game.md).
+> ⚠️ Dit voorbeeld toont alleen de collision code, niet het aanmaken van het pixi canvas en de sprites. Zie daarvoor de [default game class](../week2/week2-pixi-game.md).

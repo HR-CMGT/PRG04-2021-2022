@@ -59,8 +59,8 @@ export class Game {
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
-    update(delta) {
-        
+    update(delta:number) {
+        console.log(`Dit is de Game Loop!`)
     }
 }
 ```

@@ -13,8 +13,8 @@ Je hoeft de pixi app (met het html canvas) maar één keer aan te maken. In deze
 ```javascript
 import * as PIXI from 'pixi.js'
 
-const app = new PIXI.Application({ backgroundColor: 0x1099bb, width: 900, height: 500 })
-document.body.appendChild(app.view)
+const pixi = new PIXI.Application({ backgroundColor: 0x1099bb, width: 900, height: 500 })
+document.body.appendChild(pixi.view)
 ```
 
 <br>
@@ -31,12 +31,12 @@ import fish from "./images/fish.png"
 const fish = PIXI.Sprite.from(fish)
 
 fish.anchor.set(0.5)
-fish.x = app.screen.width / 2
-fish.y = app.screen.height / 2
+fish.x = pixi.screen.width / 2
+fish.y = pixi.screen.height / 2
 
-app.stage.addChild(fish)
+pixi.stage.addChild(fish)
 
-app.ticker.add((delta) => {
+pixi.ticker.add((delta) => {
     fish.rotation += 0.1 * delta
 })
 ```
@@ -54,7 +54,7 @@ const anotherFish = PIXI.Sprite.from(fish)
 ⚠️ Als je meerdere sprites gaat animeren, hoef je niet meerdere keren `app.ticker` aan te roepen. Plaats al je animaties in dezelfde `app.ticker` functie.
 
 ```javascript
-app.ticker.add((delta) => {
+pixi.ticker.add((delta) => {
     fish.rotation += 0.1 * delta
     anotherFish.y += 1 * delta
 })
@@ -73,7 +73,7 @@ const basicText = new PIXI.Text(`Score: 0 Lives: 3`)
 basicText.x = 50
 basicText.y = 100
 
-app.stage.addChild(basicText)
+pixi.stage.addChild(basicText)
 ```
 
 <br>

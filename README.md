@@ -30,7 +30,7 @@
 ## Code Snippets
 
 - [PixiJS en Classes](./snippets/pixi-oop.md)
-- [Click Event](./week3/week3-click.md)
+- [Click Event](./snippets/clickable.md)
 - [Keyboard Controls](./snippets/keyboard.md)
 - [Collisions](./snippets/collision.md)
 - [Image Preloader](./snippets/preloader.md)

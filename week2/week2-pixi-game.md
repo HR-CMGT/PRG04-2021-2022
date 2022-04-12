@@ -49,7 +49,7 @@ De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 
 
 # 🐠 Sprites  
 
-We gaan het [PixiJS Sprite voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) in de `Game` class plaatsen!
+We gaan het [Sprite voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) in `Game.ts` zetten.
 
 ```typescript
 import * as PIXI from "pixi.js"
@@ -58,14 +58,12 @@ import fishImage from "./images/fish.png"
 export class Game {
 
     pixi: PIXI.Application
-    // property aanmaken voor een sprite
     sprite:PIXI.Sprite
 
     constructor() {
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
         document.body.appendChild(this.pixi.view)
 
-        // sprite aanmaken
         this.sprite = PIXI.Sprite.from(fishImage)
         this.sprite.anchor.set(0.5)
         this.sprite.x = this.pixi.screen.width / 2
