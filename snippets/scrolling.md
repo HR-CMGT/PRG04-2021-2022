@@ -1,31 +1,32 @@
 # Scrolling background
 
-Je kan een afbeelding eindeloos laten herhalen door er een `TilingSprite` van te maken:
+Je kan een afbeelding eindeloos laten herhalen door een `TilingSprite` te maken:
 
+*Background.ts*
 ```typescript
 import * as PIXI from "pixi.js"
-import bgImage from "../images/background.png"
 
-export class Game {
+export class Background extends PIXI.TilingSprite {
 
-  tiles: PIXI.TilingSprite
+    constructor(texture: PIXI.Texture, w:number, h:number) {
+        super(texture, w, h)
+    }
 
-  constructor() {
-    const texture = PIXI.Texture.from(bgImage)
-
-    this.tiles = new PIXI.TilingSprite(
-      texture,
-      this.pixi.screen.width,
-      this.pixi.screen.height
-    )
-    this.pixi.stage.addChild(this.tiles)
-  }
-
-  update() {
-    this.tiles.tilePosition.x -= 3
-  }
+    public update() {
+        this.tilePosition.x -= 3
+    }
 }
+```
+<br>
+<Br>
 
+Je kan de TilingSprite toevoegen aan de game door de texture, breedte en hoogte door te geven:
+
+*GAME.TS*
+```typescript
+this.bg = new Background(this.pixi.loader.resources["background"].texture!, 
+    this.pixi.screen.width, this.pixi.screen.height)
+this.pixi.stage.addChild(this.bg)
 ```
 
 <br>
