@@ -100,27 +100,32 @@ pixi.stage.addChild(basicText)
 <br>
 <br>
 
+## 🖌 Graphics
+
+Je kan in een HTML canvas ook vrij tekenen. [Bekijk het pixijs graphics voorbeeld](https://pixijs.io/examples/#/graphics/simple.js). Kijk of je zelf wat vormen kan tekenen:
+
+```typescript
+const graphics = new PIXI.Graphics()
+
+graphics.beginFill(0xDE3249)
+graphics.drawRect(50, 50, 100, 100)
+graphics.endFill()
+
+pixi.stage.addChild(graphics)
+```
+
+<br>
+<br>
+<br>
 
 # Opdracht
 
-Maak een aquarium met vissen en bubbles zoals in deze afbeelding. Gebruik geen animatie.
+Maak een aquarium met vissen en bubbles zoals in deze afbeelding. *Je hoeft geen animatie te maken*.
 
 ![fishes](./opdracht.jpg)
 
 - Je kan een `for` loop en `Math.random()` gebruiken om meerdere vissen op random posities te plaatsen.
 - Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur.
 
-<br>
-
-## Advanced : array van sprites
-
-Plaats de fish en bubble sprites in een array, zodat je ze in de `ticker` kan laten bewegen 😱 .
-
-```typescript
-let allMySprites : PIXI.Sprite[] = []
-allMySprites.push(fish)
-```
-
-<br>
 <br>
 <br>

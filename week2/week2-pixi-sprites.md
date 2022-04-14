@@ -9,6 +9,13 @@ class Game {
     sprites : PIXI.Sprite[] = []
 }
 ```
+Je kan `push()` gebruiken om een sprite aan te maken en die in de array te zetten.
+
+```typescript
+let fish = new PIXI.Sprite(this.pixi.loader.resources["fish"].texture!)
+this.pixi.stage.addChild(fish)
+this.sprites.push(fish)
+```
 
 <Br>
 <Br>
@@ -16,14 +23,14 @@ class Game {
 
 ## For loop
 
-Gebruik nu een `for` loop in de `constructor` om een heleboel sprites tegelijk aan te maken. Gebruik `this.sprites.push(...)` om de sprite in de array te zetten.
+Gebruik nu een `for` loop om een heleboel sprites tegelijk aan te maken. Gebruik `push()` om de sprites in de array te zetten.
 
 Geef elke sprite weer een random kleur en positie.
 
 ```javascript
 class Game {
     sprites : PIXI.Sprite[] = []
-    constructor(){
+    doneLoading(){
         for (...) {
             ...
         }

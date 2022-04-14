@@ -17,10 +17,12 @@ app.ticker.add((delta) => {
 
 # 🕹 Game Class
 
-In een OOP game hebben we altijd één `Game` class waarin we de Pixi basics aanmaken: 
+In een OOP game hebben we altijd één `Game` class waarin we de Pixi basics aanmaken. Hierin laden we alle textures voor de hele game, en daarna starten we de game loop.
 
 ```typescript
 import * as PIXI from "pixi.js"
+import fishImage from "../images/fish.png"
+import bgImage from "../images/background.png"
 
 export class Game {
 
@@ -29,6 +31,16 @@ export class Game {
     constructor() {
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
         document.body.appendChild(this.pixi.view)
+
+        this.pixi.loader
+            .add("fishTexture", fishImage)
+            .add("backgroundTexture", bgImage)
+
+        this.pixi.loader.load(() => this.doneLoading())
+    }
+
+    doneLoading() {
+        console.log("all textures loaded!")
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
@@ -39,8 +51,6 @@ export class Game {
 
 new Game()
 ```
-## Game loop
-
 De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 60 keer per seconde aangeroepen. Omdat we met ***Typescript*** werken moet je aangeven dat `delta` een `number` is.
 
 <br>
@@ -49,39 +59,34 @@ De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 
 
 # 🐠 Sprites  
 
-We gaan het [Sprite voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) in `Game.ts` zetten.
-
-
-// TODO PRELOADER EN NEW SPRITE() TOEVOEGEN HIER EN IN STARTPROJECT / WEEK 1 / PRESENTATIES
-
-
+In [week 1 hebben we sprites getekend in het canvas](../week1/week1-pixi.md). We gaan deze code nu in `Game.ts` plaatsen. Dit doen we in `doneLoading` omdat we dan zeker weten dat alle plaatjes geladen zijn.
 
 ```typescript
-import * as PIXI from "pixi.js"
-import fishImage from "./images/fish.png"
-
 export class Game {
 
     pixi: PIXI.Application
-    sprite:PIXI.Sprite
+    fish:PIXI.Sprite
+    anotherFish:PIXI.Sprite
 
     constructor() {
-        this.pixi = new PIXI.Application({ width: 900, height: 500 })
-        document.body.appendChild(this.pixi.view)
+        ...
+    }
 
-        this.sprite = PIXI.Sprite.from(fishImage)
-        this.sprite.anchor.set(0.5)
-        this.sprite.x = this.pixi.screen.width / 2
-        this.sprite.y = this.pixi.screen.height / 2
-        this.pixi.stage.addChild(this.sprite)
+    doneLoading() {
+        console.log("all textures loaded!")
 
-        // start de game loop
+        this.fish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+        this.pixi.stage.addChild(this.fish)
+
+        this.anotherFish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+        this.pixi.stage.addChild(this.anotherFish)
+
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
     update(delta : number) {
-        // sprite animatie 60fps
-        this.sprite.rotation -= 0.1 * delta
+        this.fish.x -= 2
+        this.anotherFish.x -= 3
     }
 }
 ```
