@@ -12,19 +12,32 @@
 
 ## Opdracht
 
-Met `npm run start` start je de development omgeving. Dit hoef je maar één keer te doen. Als je wil stoppen druk je op `CTRL+C`.
+Met `npm run start` start je de development omgeving. Je kan ook op `START ` klikken in VS Code. Dit hoef je maar één keer te doen. 
 
-Test of de code in `game.ts` werkt:
+![run](./run_npm.png)
+
+Test of de code in `game.ts` werkt. Wordt de vis getoond?
 
 ```javascript
 import * as PIXI from 'pixi.js'
-import fish from "./images/fish.png"
+import fishImage from "./images/fish.png"
+import bubbleImage from "./images/bubble.png"
 
-let pixi = new PIXI.Application({ width: 800, height: 450 })
+// create a pixi canvas
+const pixi = new PIXI.Application({ width: 800, height: 450 })
 document.body.appendChild(pixi.view)
 
-let sprite = PIXI.Sprite.from(fish)
-pixi.stage.addChild(sprite)
+// preload all our textures
+const loader = new PIXI.Loader()
+loader.add('fishTexture', fishImage)
+      .add('bubbleTexture', bubbleImage)
+loader.load(()=>loadCompleted())
+
+// after loading is complete, create a fish sprite
+function loadCompleted() {
+    let fish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+    pixi.stage.addChild(fish)
+}
 ```
 <br>
 <br>
@@ -44,4 +57,3 @@ pixi.stage.addChild(sprite)
 - [📺 Installatie instructies filmpje](https://youtu.be/uuPprdiFKXI)
 - [PixiJS Examples](https://pixijs.io/examples/) en [Getting started](https://pixijs.io/guides/basics/getting-started.html)
 - [NodeJS](https://nodejs.org/en/) en [Visual Studio Code](https://code.visualstudio.com)
-- [Zelf een PixiJS Typescript project opzetten from scratch](https://github.com/HR-CMGT/PRG04-2021-2022-startproject/blob/main/scratch.MD)

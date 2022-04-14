@@ -51,6 +51,11 @@ De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 
 
 We gaan het [Sprite voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) in `Game.ts` zetten.
 
+
+// TODO PRELOADER EN NEW SPRITE() TOEVOEGEN HIER EN IN STARTPROJECT / WEEK 1 / PRESENTATIES
+
+
+
 ```typescript
 import * as PIXI from "pixi.js"
 import fishImage from "./images/fish.png"

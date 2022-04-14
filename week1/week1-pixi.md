@@ -1,6 +1,6 @@
-# Week 1 - PixiJS voorbeelden
+# Week 1 - PixiJS basics
 
-Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor het werken met Pixi. In week 1 kan je deze voorbeelden plakken in `game.ts` om te kijken of het werkt in onze development omgeving!
+Op deze pagina vind je de setup van PixiJS met een `canvas` en een `sprite`. Op de [PixiJS site](https://pixijs.io/examples/) vind je nog veel meer voorbeelden! 
 
 <br>
 <br>
@@ -8,7 +8,9 @@ Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor h
 
 ## Canvas
 
-Je hoeft de pixi app (met het html canvas) maar één keer aan te maken. In deze canvas plaats je al je game elementen.
+Je maakt één keer een Pixi App aan. Hiermee plaats je een `canvas` element in je HTML pagina. In dit canvas worden alle pixi sprites en animaties getekend! 
+
+> ⚠️ Let dus op dat je niet telkens een nieuw canvas aanmaakt als je meerdere voorbeelden gaat combineren.
 
 ```javascript
 import * as PIXI from 'pixi.js'
@@ -21,44 +23,61 @@ document.body.appendChild(pixi.view)
 <br>
 <br>
 
+## Preloader
+
+We gebruiken `import` en de `pixi loader` om alle plaatjes die we nodig hebben in te laden voordat de game start.
+
+```typescript
+import fishImage from "./images/fish.png"
+import bubbleImage from "./images/bubble.png"
+
+const loader = new PIXI.Loader()
+loader.add('fishTexture', fishImage)
+      .add('bubbleTexture', bubbleImage)
+loader.load(()=>loadCompleted())
+
+function loadCompleted(){
+    console.log("alle plaatjes zijn geladen!")
+}
+```
+<br>
+<br>
+<br>
+
 ## 🐰 Sprite  
 
-https://pixijs.io/examples/#/sprite/basic.js
+Als de preloader klaar is kan je ***sprites*** aanmaken en op het `canvas` plaatsen. Je kan dezelfde afbeelding gebruiken om meerdere ***sprites*** aan te maken.
 
-```javascript
-import fish from "./images/fish.png"
+```typescript
+function loadCompleted() {
+    let fish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+    fish.x = 100
+    fish.y = 200
+    pixi.stage.addChild(fish)
 
-const fish = PIXI.Sprite.from(fish)
-
-fish.anchor.set(0.5)
-fish.x = pixi.screen.width / 2
-fish.y = pixi.screen.height / 2
-
-pixi.stage.addChild(fish)
-
-pixi.ticker.add((delta) => {
-    fish.rotation += 0.1 * delta
-})
-```
-Je kan meerdere sprites maken van dezelfde afbeelding
-```javascript
-const anotherFish = PIXI.Sprite.from(fish)
+    let anotherFish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+    anotherFish.x = 400
+    anotherFish.y = 100
+    pixi.stage.addChild(anotherFish)
+}
 ```
 
 <br>
 <br>
 <br>
 
-## ⏱ Ticker
+## ⏱ Animatie
 
-⚠️ Als je meerdere sprites gaat animeren, hoef je niet meerdere keren `app.ticker` aan te roepen. Plaats al je animaties in dezelfde `app.ticker` functie.
+Als je een `pixi` app hebt gemaakt, kan je de `ticker` functie gebruiken om 60 keer per seconde een animatie frame te tekenen. 
 
 ```javascript
 pixi.ticker.add((delta) => {
-    fish.rotation += 0.1 * delta
-    anotherFish.y += 1 * delta
+    fish.x += 0.1 * delta
+    anotherFish.x += 1 * delta
 })
 ```
+
+[Sprite Documentatie](https://pixijs.io/examples/#/sprite/basic.js)
 
 <br>
 <br>
@@ -66,7 +85,7 @@ pixi.ticker.add((delta) => {
 
 ## 💬 Text
 
-https://pixijs.io/examples/#/text/text.js
+Kijk of je een score in beeld kan tonen!
 
 ```javascript
 const basicText = new PIXI.Text(`Score: 0 Lives: 3`)
@@ -75,6 +94,7 @@ basicText.y = 100
 
 pixi.stage.addChild(basicText)
 ```
+[Text Documentatie](https://pixijs.io/examples/#/text/text.js)
 
 <br>
 <br>
@@ -83,13 +103,23 @@ pixi.stage.addChild(basicText)
 
 # Opdracht
 
-Maak een aquarium met vissen en bubbles zoals in deze afbeelding. Dit hoeft nog niet te animeren.
+Maak een aquarium met vissen en bubbles zoals in deze afbeelding. Gebruik geen animatie.
 
 ![fishes](./opdracht.jpg)
 
 - Je kan een `for` loop en `Math.random()` gebruiken om meerdere vissen op random posities te plaatsen.
 - Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur.
-- Optioneel: plaats de fish en bubble sprites in een array, zodat je ze in de `ticker` kan laten bewegen 😱 .
+
+<br>
+
+## Advanced : array van sprites
+
+Plaats de fish en bubble sprites in een array, zodat je ze in de `ticker` kan laten bewegen 😱 .
+
+```typescript
+let allMySprites : PIXI.Sprite[] = []
+allMySprites.push(fish)
+```
 
 <br>
 <br>
