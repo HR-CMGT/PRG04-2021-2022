@@ -15,7 +15,7 @@
 | 2 | Classes en instances | [Game Class](./week2/week2-pixi-game.md) en [Array van Sprites](./week2/week2-pixi-sprites.md) |  |
 | 3 | Composition | [Fish Class](./week3/week3-pixi-oop.md), [Arrays](./week3/week3-arrays.md), [Click Event](./week3/week3-click.md) | Spritesheets | |
 | 4 | Encapsulation | App doorgeven. Score bijhouden. UI Class. [Keyboard controls](./controls.md). Collision detection.  | Vector Math | Zelf evaluatie |
-| 5 | Game development | Timer, oplopende moeilijkheidsgraad, spawning en object pooling, objecten verwijderen | Physics | |
+| 5 | Game development | Timer, oplopende moeilijkheidsgraad, spawning en object pooling, objecten verwijderen | [Physics](https://github.com/KokoDoko/piximatters) | |
 | 6 | Inheritance | Meerdere soorten Fish. Wisselen tussen scenes. | PixiJS Advanced | Peer review |
 | 7 | Game development | Verschillende game mechanics en systems | | |
 | 8 | Game development | Vraaggestuurd | | Eindevaluatie |
@@ -33,7 +33,7 @@
 - [Click Event](./snippets/clickable.md)
 - [Keyboard Controls](./snippets/keyboard.md)
 - [Collisions](./snippets/collision.md)
-- [Image Preloader](./snippets/preloader.md)
+- [Assets Preloader en Sound](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
 - [🎮 Controller aansluiten]()
 
@@ -57,5 +57,5 @@
 
 - [Voorbeeldproject Space Shooter](https://github.com/KokoDoko/pixidust)
 - [Voorbeeldproject Physics](https://github.com/KokoDoko/piximatters)
-- [Voorbeeldproject Flappy Bird]()
+- [Voorbeeldproject Flappy Bird](https://github.com/KokoDoko/pixibird.git)
 
