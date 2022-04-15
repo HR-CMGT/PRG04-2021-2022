@@ -16,6 +16,10 @@ export class Game {
         this.bunnyOne = new Bunny(texture)
         this.bunnyTwo = new Bunny(texture)
         this.bunnyThree = new Bunny(texture)
+
+        this.pixi.stage.addChild(this.bunnyOne)
+        this.pixi.stage.addChild(this.bunnyTwo)
+        this.pixi.stage.addChild(this.bunnyThree)
     }
 
     private update(delta) {
@@ -33,7 +37,7 @@ export class Game {
 
 We kunnen ook een enkele property aanmaken waarin alle Bunnies komen te staan. Dit is dan een array van het type `Bunny`. Let op dat je ook meteen een lege array aanmaakt : `bunnies: Bunny[] = []`
 
-Met een `for` loop kunnen we hier meerdere bunnies in zetten!
+Met een `for` loop kunnen we hier meerdere bunnies in zetten. Vergeet niet dat je de bunny ook nog aan de `canvas` moet toevoegen. Daarom maken we een tijdelijke variabele met `let`.
 
 ```typescript
 import { Bunny } from "./Bunny"
@@ -44,7 +48,9 @@ export class Game {
 
     constructor() {
         for(let i = 0; i<10; i++){
-            this.bunnies.push(new Bunny(loader.resources["bunnyTexture"].texture!))
+            let bunny = new Bunny(loader.resources["bunnyTexture"].texture!)
+            this.bunnies.push(bunny)
+            this.pixi.stage.addChild(bunny)
         }
     }
 }
