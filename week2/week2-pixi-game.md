@@ -55,6 +55,20 @@ De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 
 
 <br>
 <br>
+
+## 🤔 THIS keyword
+
+De eigenschappen en functies van de `Game` class kan je aanroepen via het `this` keyword, bijvoorbeeld:
+
+```typescript
+this.speed = 4
+console.log(this.speed)
+this.doneLoading()
+this.update()
+```
+
+<br>
+<br>
 <br>
 
 # 🐠 Sprites  

@@ -7,14 +7,15 @@ import { Bunny } from "./Bunny"
 
 export class Game {
 
-    private bunnyOne: Bunny
-    private bunnyTwo: Bunny
-    private bunnyThree: Bunny
+    bunnyOne: Bunny
+    bunnyTwo: Bunny
+    bunnyThree: Bunny
 
     constructor() {
-        this.bunnyOne = new Bunny(this)
-        this.bunnyTwo = new Bunny(this)
-        this.bunnyThree = new Bunny(this)
+        let texture = loader.resources["bunnyTexture"].texture!
+        this.bunnyOne = new Bunny(texture)
+        this.bunnyTwo = new Bunny(texture)
+        this.bunnyThree = new Bunny(texture)
     }
 
     private update(delta) {
@@ -30,20 +31,20 @@ export class Game {
 
 ## For loop en array
 
-We kunnen ook een enkele property aanmaken waarin alle Bunnies komen te staan. Dit is dan een array van het type `Bunny`. Let op dat je ook meteen een lege array aanmaakt.
+We kunnen ook een enkele property aanmaken waarin alle Bunnies komen te staan. Dit is dan een array van het type `Bunny`. Let op dat je ook meteen een lege array aanmaakt : `bunnies: Bunny[] = []`
 
-Met een `for` loop kunnen we hier meerdere bunnies in zettten.
+Met een `for` loop kunnen we hier meerdere bunnies in zetten!
 
 ```typescript
 import { Bunny } from "./Bunny"
 
 export class Game {
 
-    private bunnies: Bunny[] = []
+    bunnies: Bunny[] = []
 
     constructor() {
         for(let i = 0; i<10; i++){
-            this.bunnies.push(new Bunny(this))
+            this.bunnies.push(new Bunny(loader.resources["bunnyTexture"].texture!))
         }
     }
 }
@@ -58,7 +59,7 @@ We kunnen door de array heen loopen met een `for of` loop, en dan van elke `inst
 
 ```typescript
 class Game {
-    private update(delta) {
+    update(delta) {
         for(let bunny of this.bunnies){
             bunny.update(delta)
         }
@@ -74,9 +75,11 @@ class Game {
 
 ![fishes](../week1/opdracht.jpg)
 
-- Plaats de Fishes en Bubbles in een array in de Game class
-- Geef de `Fish` en `Bubble` classes een `update` functie om te animeren (zie het voorbeeld van de Bunny class).
+- Plaats de Fishes en Bubbles in een array in de Game class.
+- Geef alle vissen en bubbles random startposities. 
+- Geef alle vissen een random startkleur.
 - Gebruik een `for of` loop om de `update` functie van de vissen en bubbles aan te roepen. 
+- De vissen bewegen naar links, de bubbles bewegen naar boven. Als ze uit beeld gaan verschijnen ze aan de andere kant weer in beeld.
 
 <Br>
 <br>

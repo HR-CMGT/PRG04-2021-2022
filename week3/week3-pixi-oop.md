@@ -1,99 +1,82 @@
 # Week 3 - Fish Class
 
-In week 2 hebben we alle sprites uit het [voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) rechtstreeks in de Game class aangemaakt.
+In week 2 hebben we de sprites uit het [voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) rechtstreeks in de Game class aangemaakt.
 
-Zodra je game elementen meer gedrag en eigenschappen krijgen, dan is het handiger om er een aparte class voor te maken.
+Zodra je game elementen **gedrag en eigenschappen** krijgen, dan kan je er een aparte class voor maken. De vis heeft als gedrag dat hij naar links zwemt, en als hij uit beeld gaat verschijnt hij rechts weer in beeld. 
 
 <br>
 <br>
 <br>
 
-## 🐠 Fish Class
+# 🐠 Sprite Class
 
-De Fish heeft een *sprite* (de afbeelding), en de *positie* en *rotatie* van die sprite. Daarom maken we van `sprite` een property. Gebruik `this.sprite` om de sprite aan te maken en aan te passen.
+Om een sprite (*een sprite is een afbeelding met x en y positie, en nog veel meer eigenschappen*) in een eigen class te plaatsen kan je de volgende code gebruiken. 
+
+> ⚠️ Let op de `extends` en `super` keywords, dit kan je niet weglaten. Dit zorgt dat jouw class nog steeds gezien wordt als een `sprite`.
 
 ```typescript
 import * as PIXI from "pixi.js"
-import fishImage from "./images/fish.png"
 
-export class Fish {
-    sprite:PIXI.Sprite
-    constructor(){
-        this.sprite = PIXI.Sprite.from(fishImage)
+export class Fish extends PIXI.Sprite {
+    
+    constructor(texture: PIXI.Texture) {
+        super(texture)
     }
 
+    update(delta:number) {
+        console.log("This fish is updating!")
+    }
 }
+
 ```
-<Br>
-<br>
-<br>
+## Animatie
 
-## 😱 Help! Het canvas staat in de Game class!
-
-In de `Game` class zag je dat sprites aan de canvas worden toegevoegd met `this.pixi.stage.addChild()`
-
-Omdat we nu in een aparte class zijn, moeten we dat doen via de `game` variabele die we via de `constructor` kunnen opvragen.
+Net zoals in de `Game` class gebruik je `this` om de eigenschappen en gedrag van de `Fish` aan te roepen. We weten dat een sprite een `x` eigenschap heeft. We kunnen die `x` positie dus aanpassen met `this.x`
 
 ```typescript
-import fishImage from "./images/fish.png"
-import { Game } from "./Game"
-
-export class Fish {
-    sprite: PIXI.Sprite
-    // plaats de game variabele in de constructor
-    constructor(game:Game){
-        this.sprite = PIXI.Sprite.from(fishImage)
-        this.sprite.anchor.set(0.5)
-        this.sprite.x = game.pixi.screen.width / 2
-        this.sprite.y = game.pixi.screen.height / 2
-        game.pixi.stage.addChild(this.sprite)
+export class Fish extends PIXI.Sprite {
+    
+    constructor(texture: PIXI.Texture) {
+        super(texture)
+        this.x = 100
     }
-    update(delta : number){
-        this.sprite.rotation += 0.1 * delta
+
+    update(delta:number) {
+        this.x -= 5
+    }
+}
+
+```
+
+<br>
+<br>
+
+## 😱 Fish toevoegen aan de Game Class
+
+Om de `Fish` in de `Game` te plaatsen kan je nu `new Fish()` gebruiken in plaats van `new PIXI.Sprite()`!
+
+```typescript
+class Game {
+    doneLoading() {
+        // 👴🏻 Old code
+        this.sprite = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+        // 🤩 New code
+        this.sprite = new Fish(loader.resources["fishTexture"].texture!)
     }
 }
 ```
 ### 🎬 Animatie
 
-In de `update` functie plaats je code die elk frame uitgevoerd moet worden. ⚠️ Let op dat je hier geen nieuwe `ticker` hoeft aan te maken! De `ticker` staat al in de `Game` class.
-
-<br>
-<br>
-<br>
-
-# Fish toevoegen aan de Game Class
-
-In de Game class maken we een `property` voor een Fish. Daarin plaatsen we een `new Fish()`. In de `update()` functie kan je de Fish updaten. 
-
-> ⚠️ Zowel `Game` als `Fish` hebben het `export` keyword nodig, zodat ze elkaar kunnen vinden.
-
-Je `Game` class gaat er dan als volgt uit zien:
+Om de Fish te animeren kan je de `update` functie van de `Fish` aanroepen.
 
 ```typescript
-import * as PIXI from "pixi.js"
-import { Fish } from "./Fish"
-
-export class Game {
-
-    pixi: PIXI.Application
-    Fish: Fish
-
-    constructor() {
-        const container = document.getElementById("container")!
-        this.pixi = new PIXI.Application({ width: 900, height: 500 })
-        container.appendChild(this.pixi.view)
-        this.pixi.ticker.add((delta) => this.update(delta))
-
-        this.fish = new Fish(this)
-    }
-
-    update(delta) {
-        this.fish.update(delta)
+class Game {
+    update(delta:number) {
+        this.sprite.update(delta)
     }
 }
-
-new Game()
 ```
+
 
 <br>
 <br>
@@ -103,10 +86,23 @@ new Game()
 
 Maak een Class voor Game, Fish, Background, Bubble
 
-- Je hoeft nog geen animatie toe te voegen, je kan de `update` functie in `Fish` en `Bubble` dus even leeg laten.
 - Maak **twee fishes, twee bubbles en een background** aan in Game.
-- Je kan `Math.random()` gebruiken in de `Fish` en `Bubble` classes, om de x en y posities random te maken.
-- Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur in de `Fish` class.
+- Gebruik `Math.random()` in de `Fish` en `Bubble` classes, om de `this.x` en `this.y` posities random te maken.
+- Gebruik `this.tint = Math.random() * 0xFFFFFF` voor een random kleur in de `Fish` class.
+- Bekijk wat voor gedrag en eigenschappen een sprite nog meer heeft. Kan je die aanroepen via `this` ? Bijvoorbeeld:
+    - this.scale.set(0.5)
+    - this.rotation = 0.5
+    - this.anchor.set(0.5)
+
+[Sprite documentatie](https://pixijs.download/dev/docs/PIXI.Sprite.html)
+
+<br>
+<br>
+<br>
+
+# Opdracht
+
+Laat de vissen naar links zwemmen. Als de vis links uit beeld gaat, verschijnt de vis rechts weer in beeld. Doe hetzelfde met de bubbles, maar dan verticaal.
 
 <br>
 <br>

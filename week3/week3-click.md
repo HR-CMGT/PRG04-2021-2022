@@ -1,29 +1,43 @@
-# Texture wisselen met Click Event
+# Sprite clickable maken
 
-Hieronder zie je hoe je meerdere textures kan gebruiken in een sprite, en hoe je het [Click voorbeeld van PixiJS](https://pixijs.io/examples/#/interaction/click.js) kan gebruiken in een Class:
+We kunnen een sprite interactief maken met `this.interactive`. We kunnen vervolgens een click listener toevoegen met `this.on(event)`. Daarin geef je aan welke functie uitgevoerd moet worden als iemand op de sprite klikt. 
 
 ```typescript
-import bunnyImage from "./images/bunny.png"
-import deadBunnyImage from "./images/deadbunny.png"
+import * as PIXI from "pixi.js"
 
-export class Bunny {
-    sprite: PIXI.Sprite
-    bonesTexture : PIXI.Texture
+export class Bunny extends PIXI.Sprite {
+    
+    constructor(texture: PIXI.Texture) {
+        super(texture)
 
-    constructor(game: Game) {
-        this.deadTexture = PIXI.Texture.from(deadBunnyImage)
+        this.interactive = true
+        this.buttonMode = true
+        this.on('pointerdown', () => this.bunnyClicked())
+    }
 
-        ...
-
-        this.sprite.interactive = true
-        this.sprite.buttonMode = true
-        this.sprite.on('pointerdown', () => this.bunnyClicked())
+    update(delta:number) {
+        this.rotation += 0.01
     }
 
     bunnyClicked() {
         console.log("click!")
-        this.sprite.texture = this.deadTexture
+        this.rotation = 0
     }
 }
 ```
-Kan je de texture van de sprite vervangen door het skelet plaatje als je op de vis klikt?
+
+<br>
+<br>
+<br>
+
+# Opdracht
+
+Kan je de vissen en bubbles clickable maken? Zodra je klikt zet je de vis heel ver naar rechts zodat het even duurt voordat de vis weer in beeld verschijnt. Doe dit ook voor de bubbles, maar dan verticaal.
+
+<br>
+<br>
+<br>
+
+## Links
+
+- [Click voorbeeld PixiJS](https://pixijs.io/examples/#/interaction/click.js)
