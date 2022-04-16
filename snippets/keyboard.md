@@ -2,11 +2,8 @@
 
 Gebruik `window.addEventListener("keydown")` om te reageren op keyboard events in het window.
 
-We maken variabelen aan voor de X snelheid en de Y snelheid. De X,Y snelheid kan omhoog gaan als er toetsen worden ingedrukt.
+We gebruiken snelheid variabelen (`xspeed, yspeed`) om in de vier richtingen (Cursor keys of WASD) te bewegen.
 
-De snelheid wordt weer 0 als de toets wordt losgelaten.
-
-<br>
 
 ```typescript
 import * as PIXI from "pixi.js"
@@ -80,11 +77,25 @@ export class Ship extends PIXI.Sprite {
 <br>
 <Br>
 
-## Stoppen met keyboard events
+## Stoppen met luisteren naar events
 
-Als het schip niet meer hoeft te reageren op key events dan kan je de listeners verwijderen.
+Als je een eventlistener aan het `window` toevoegt blijft die listener voor altijd actief. Het is dus belangrijk om met `removeEventListener()` de listener weer te verwijderen als de input niet meer nodig is.
+
+Je moet hiervoor een extra variabele aanmaken van het type `EventListener`. Deze kan je vervolgens toevoegen en verwijderen:
 
 ```typescript
-window.removeEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
-window.removeEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
+class App {
+
+    mylistener:EventListener
+
+    constructor(){
+        this.mylistener = (e:Event) => this.logMessage(e)
+        window.addEventListener('click', this.mylistener)
+    }
+
+    logMessage(e:Event){
+        console.log("click event was called, now removing the listener!")
+        window.removeEventListener("click", this.mylistener)
+    }
+}
 ```
