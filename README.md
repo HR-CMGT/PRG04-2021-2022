@@ -35,7 +35,6 @@
 - [Collisions](./snippets/collision.md)
 - [Assets Preloader en Sound](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
-- [🎮 Controller aansluiten]()
 
 <br>
 <br>
@@ -45,7 +44,10 @@
 
 - [🔥 Startproject PRG4 🔥](https://github.com/HR-CMGT/PRG04-2021-2022-startproject) 
 - [PixiJS Home](https://pixijs.com), [Examples](https://pixijs.io/examples/), [Documentatie](https://api.pixijs.io)
-- [📺 PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q) en [PlayList](https://www.youtube.com/playlist?list=PLapEGS8XnriPHDDbtUFnoY4M17jITNIGh)
+- [📺 PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q) en [YouTube PlayList](https://www.youtube.com/playlist?list=PLapEGS8XnriPHDDbtUFnoY4M17jITNIGh)
+- [MDN Game Development](https://developer.mozilla.org/en-US/docs/Games), [Controller](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API), [Collision Detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection)
+- [Voortgang opslaan met localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- [Online Multiplayer met Socket.IO](https://socket.io) of [Lance](https://lance-gg.github.io)
 - [Pixi Text Style Designer](https://pixijs.io/pixi-text-style/#)
 - [Typescript](https://www.typescriptlang.org)
 
