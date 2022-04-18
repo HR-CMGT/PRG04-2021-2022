@@ -94,3 +94,11 @@ class Game {
 # Opdracht
 
 [Maak de `Fishes` clickable](./week3-click.md)
+
+<br>
+<br>
+<br>
+
+## Links
+
+- [PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q)

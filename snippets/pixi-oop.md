@@ -1,6 +1,6 @@
 # PixiJS voorbeelden gebruiken in OOP
 
-Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor het werken met Pixi. Op deze pagina zie je hoe je deze voorbeelden kan toepassen in jouw OOP game. 
+Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor het werken met Pixi. Op deze pagina zie je hoe je deze voorbeelden kan toepassen in jouw OOP game. Bekijk ook deze [Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q) voor het werken met Classes in Pixi.
 
 <br>
 <br>
@@ -12,29 +12,19 @@ Op de [PixiJS site](https://pixijs.io/examples/) vind je veel voorbeelden voor h
 De [voorbeeldcode voor een PixiJS Sprite](https://pixijs.io/examples/#/sprite/basic.js) is als volgt:
 
 ```javascript
-const app = new PIXI.Application({ backgroundColor: 0x1099bb });
-document.body.appendChild(app.view);
-
-// create a new Sprite from an image path
-const bunny = PIXI.Sprite.from('examples/assets/bunny.png');
-
-// center the sprite's anchor point
-bunny.anchor.set(0.5);
-
-// move the sprite to the center of the screen
-bunny.x = app.screen.width / 2;
-bunny.y = app.screen.height / 2;
-
-app.stage.addChild(bunny);
-
-// Listen for animate update
+const app = new PIXI.Application({ backgroundColor: 0x1099bb })
+document.body.appendChild(app.view)
+const bunny = PIXI.Sprite.from('examples/assets/bunny.png')
+bunny.anchor.set(0.5)
+bunny.x = app.screen.width / 2
+bunny.y = app.screen.height / 2
+app.stage.addChild(bunny)
 app.ticker.add((delta) => {
-    // just for fun, let's rotate mr rabbit a little
-    // delta is 1 if running at 100% performance
-    // creates frame-independent transformation
-    bunny.rotation += 0.1 * delta;
-});
+    bunny.rotation += 0.1 * delta
+})
 ```
+We gaan deze code omzetten naar een `Bunny` class en een `Game` class:
+
 
 <br>
 <br>
@@ -149,3 +139,7 @@ export class Game {
 <br>
 <br>
 <br>
+
+## Links
+
+- [📺 PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q)

@@ -113,3 +113,11 @@ Laat de vissen naar links zwemmen. Als de vis links uit beeld gaat, verschijnt d
 Om een groter aantal fishes en bubbles te kunnen aanmaken hebben we `Arrays` nodig.
 
 [Ga naar de Arrays opdracht](./week3-arrays.md)
+
+<br>
+<br>
+<br>
+
+## Links
+
+- [PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q)

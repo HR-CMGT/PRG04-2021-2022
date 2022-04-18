@@ -44,10 +44,13 @@
 ## Links
 
 - [🔥 Startproject PRG4 🔥](https://github.com/HR-CMGT/PRG04-2021-2022-startproject) 
-- [PixiJS](https://pixijs.com) en [Examples](https://pixijs.io/examples/)
-- [PixiJS API Reference](https://api.pixijs.io)
+- [PixiJS Home](https://pixijs.com), [Examples](https://pixijs.io/examples/), [Documentatie](https://api.pixijs.io)
+- [📺 PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q) en [PlayList](https://www.youtube.com/playlist?list=PLapEGS8XnriPHDDbtUFnoY4M17jITNIGh)
 - [Pixi Text Style Designer](https://pixijs.io/pixi-text-style/#)
 - [Typescript](https://www.typescriptlang.org)
+
+
+
 
 <br>
 <br>
@@ -55,7 +58,6 @@
 
 ## Voorbeeld projecten
 
-- [Voorbeeldproject Space Shooter](https://github.com/KokoDoko/pixidust)
-- [Voorbeeldproject Physics](https://github.com/KokoDoko/piximatters)
-- [Voorbeeldproject Flappy Bird](https://github.com/KokoDoko/pixibird.git)
-
+- [Space Shooter](https://github.com/KokoDoko/pixidust)
+- [Flappy Bird](https://github.com/KokoDoko/pixibird.git)
+- [Physics](https://github.com/KokoDoko/piximatters)
