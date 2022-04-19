@@ -61,6 +61,7 @@ function loadCompleted() {
     pixi.stage.addChild(anotherFish)
 }
 ```
+Bekijk hier alle eigenschappen van een [sprite](https://pixijs.download/dev/docs/PIXI.Sprite.html) en de [voorbeeldcode](https://pixijs.io/examples/#/sprite/basic.js)
 
 <br>
 <br>
@@ -76,8 +77,6 @@ pixi.ticker.add((delta) => {
     anotherFish.x += 1 * delta
 })
 ```
-
-[Sprite Documentatie](https://pixijs.io/examples/#/sprite/basic.js)
 
 <br>
 <br>
@@ -129,3 +128,9 @@ Maak een aquarium met vissen en bubbles zoals in deze afbeelding. *Je hoeft geen
 
 <br>
 <br>
+<br>
+
+## Links
+
+- [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js)
+- [Sprite API](https://pixijs.download/dev/docs/PIXI.Sprite.html)
