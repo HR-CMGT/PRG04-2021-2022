@@ -95,6 +95,8 @@ pixi.stage.addChild(basicText)
 ```
 [Text Documentatie](https://pixijs.io/examples/#/text/text.js)
 
+[Text style editor](https://pixijs.io/pixi-text-style/)
+
 <br>
 <br>
 <br>
