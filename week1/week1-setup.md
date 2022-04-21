@@ -55,5 +55,6 @@ function loadCompleted() {
 # Links
 
 - [📺 Installatie instructies filmpje](https://youtu.be/uuPprdiFKXI)
+- [:movie_camera: Objecten in OOP](https://youtu.be/FqDhRc4eX40)
 - [PixiJS Examples](https://pixijs.io/examples/) en [Getting started](https://pixijs.io/guides/basics/getting-started.html)
 - [NodeJS](https://nodejs.org/en/) en [Visual Studio Code](https://code.visualstudio.com)

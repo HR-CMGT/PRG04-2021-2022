@@ -133,3 +133,7 @@ Als de vissen links uit beeld zwemmen, moeten ze rechts weer in beeld verschijne
 # Opdracht
 
 [Ga verder met deel 2: een array van sprites](./week2-pixi-sprites.md)
+
+## Links
+
+- [:movie_camera: Classes in OOP](https://youtu.be/TcYRLGJQgMI)
