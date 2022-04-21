@@ -102,9 +102,8 @@ basicText.y = 100
 
 pixi.stage.addChild(basicText)
 ```
-[Text Documentatie](https://pixijs.io/examples/#/text/text.js)
-
-[Text style editor](https://pixijs.io/pixi-text-style/)
+- [Text Documentatie](https://pixijs.io/examples/#/text/text.js)
+- [Text style editor](https://pixijs.io/pixi-text-style/)
 
 <br>
 <br>
@@ -112,7 +111,7 @@ pixi.stage.addChild(basicText)
 
 ## 🖌 Graphics
 
-Je kan in een HTML canvas ook vrij tekenen. [Bekijk het pixijs graphics voorbeeld](https://pixijs.io/examples/#/graphics/simple.js). Kijk of je zelf wat vormen kan tekenen:
+Je kan in een HTML canvas ook [vrij tekenen](https://pixijs.io/examples/#/graphics/simple.js). Kijk of je zelf wat vormen kan tekenen:
 
 ```typescript
 const graphics = new PIXI.Graphics()
@@ -123,6 +122,7 @@ graphics.endFill()
 
 pixi.stage.addChild(graphics)
 ```
+- [Graphics documentatie](https://pixijs.io/examples/#/graphics/simple.js)
 
 <br>
 <br>
@@ -143,6 +143,6 @@ Maak een aquarium met vissen en bubbles zoals in deze afbeelding. *Je hoeft geen
 
 ## Links
 
-- [:movie_camera: Objecten in OOP](https://youtu.be/FqDhRc4eX40)
+- [📺 Kennisclip: objecten in OOP](https://youtu.be/FqDhRc4eX40)
 - [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js)
 - [Sprite API](https://pixijs.download/dev/docs/PIXI.Sprite.html)
