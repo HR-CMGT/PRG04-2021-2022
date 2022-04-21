@@ -42,3 +42,4 @@ Kan je de vissen en bubbles clickable maken? Zodra je klikt zet je de vis heel v
 
 - [Click voorbeeld PixiJS](https://pixijs.io/examples/#/interaction/click.js)
 - [PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q)
+- [:movie_camera: Composition in OOP](https://youtu.be/xTOhht5-eg0)

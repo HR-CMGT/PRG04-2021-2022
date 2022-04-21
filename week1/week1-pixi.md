@@ -104,6 +104,8 @@ pixi.stage.addChild(basicText)
 ```
 [Text Documentatie](https://pixijs.io/examples/#/text/text.js)
 
+[Text style editor](https://pixijs.io/pixi-text-style/)
+
 <br>
 <br>
 <br>
@@ -141,5 +143,6 @@ Maak een aquarium met vissen en bubbles zoals in deze afbeelding. *Je hoeft geen
 
 ## Links
 
+- [:movie_camera: Objecten in OOP](https://youtu.be/FqDhRc4eX40)
 - [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js)
 - [Sprite API](https://pixijs.download/dev/docs/PIXI.Sprite.html)
