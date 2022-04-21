@@ -69,5 +69,14 @@ Maak de afbeelding na met animerende bubbles en sprites. Kan je de bubbles omhoo
 
 Als het je is gelukt om sprites te tonen in de Game class, dan kan je met behulp van de PixiJS voorbeelden ook Tekst en Graphics in je Game class plaatsen. 
 
-- [PixiJS Text](https://pixijs.io/examples/#/text/text.js)
-- [PixiJS Graphic](https://pixijs.io/examples/#/graphics/simple.js)
+- [Text](https://pixijs.io/examples/#/text/text.js)
+- [Graphic](https://pixijs.io/examples/#/graphics/simple.js)
+
+<br>
+<br>
+<br>
+
+## Links
+
+- [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js)
+- [Sprite API](https://pixijs.download/dev/docs/PIXI.Sprite.html)

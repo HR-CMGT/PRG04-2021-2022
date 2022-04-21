@@ -71,11 +71,20 @@ Bekijk hier alle eigenschappen van een [sprite](https://pixijs.download/dev/docs
 
 Als je een `pixi` app hebt gemaakt, kan je de `ticker` functie gebruiken om 60 keer per seconde een animatie frame te tekenen. 
 
+Omdat de `fish` variabele in meerdere functies beschikbaar moet zijn maken we die global.
+
 ```javascript
-pixi.ticker.add((delta) => {
+
+let fish : PIXI.Sprite
+
+function loadCompleted() {
+    fish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+    pixi.ticker.add((delta) => update(delta))
+}
+
+function update(delta:number) {
     fish.x += 0.1 * delta
-    anotherFish.x += 1 * delta
-})
+}
 ```
 
 <br>
