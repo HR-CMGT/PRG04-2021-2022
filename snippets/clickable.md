@@ -1,36 +1,48 @@
 # Clickable sprite
 
-Maak een sprite interactive
+Maak een sprite interactief. Dit kan je simpelweg doen met:
 
 ```typescript
-import * as PIXI from "pixi.js"
-
 export class Fish extends PIXI.Sprite {
-
-    bonesTexture:PIXI.Texture
-    
-    constructor(texture: PIXI.Texture, bonesTexture:PIXI.Texture) {
+   
+    constructor(texture: PIXI.Texture) {
         super(texture)
-        this.bonesTexture = PIXI.Texture.from(bonesImage)
-
-        this.anchor.set(0.5)
         this.x = 400
         this.y = 200
-
         this.interactive = true
-        this.buttonMode = true
         this.on('pointerdown', () => this.onClick())
     }
 
     onClick() {
         console.log("je klikt op een vis")
-        this.texture = this.bonesTexture
+    }
+}
+```
+<br>
+<br>
+<br>
+
+## Click handler verwijderen
+
+Als je de click handler ook weer wil kunnen verwijderen moet je een aparte variabele aanmaken van het type `EventListener`:
+
+```typescript
+export class Fish extends PIXI.Sprite {
+
+    clickHandler : EventListener
+    
+    constructor(texture: PIXI.Texture) {
+        super(texture)
+        this.x = 400
+        this.y = 200
+        this.interactive = true
+        this.clickHandler = () => this.onClick()
+        this.on('pointerdown', this.clickHandler)
     }
 
-    update(delta : number) {
-        this.x -= 2 * delta
-        if(this.x < -100) this.x = 900
+    onClick() {
+        console.log("je klikt op een vis")
+        this.off('pointerdown', this.clickHandler)
     }
-
 }
 ```
