@@ -16,16 +16,14 @@ export class Shark extends PIXI.Sprite {
 
     constructor(texture:PIXI.Texture) {
         super(texture)
-
         this.anchor.set(0.5)
-        this.x = -100
-        this.y = 180
 
-        let box = this.getBounds()
-        let hitbox = new PIXI.Graphics()
-        hitbox.lineStyle(2, 0x33FF33, 1)
-        hitbox.drawRect(0 - box.width/2, 0 - box.height/2, box.width, box.height)
-        this.addChild(hitbox)
+        // teken een groene box
+        let area = this.getBounds()
+        let greenBox = new PIXI.Graphics()
+        greenBox.lineStyle(2, 0x33FF33, 1)
+        greenBox.drawRect(0 - area.width/2, 0 - area.height/2, area.width, area.height)
+        this.addChild(greenBox)
     }
 }
 ```
@@ -38,29 +36,30 @@ export class Shark extends PIXI.Sprite {
 
 ![boxb](./hitboxb.png)
 
-Soms wil je dat je hitbox kleiner of groter is dan de texture van je sprite. Je kan dan je eigen `rectangle` gebruiken als hitbox. Je overschrijft hiermee de standaard `getBounds` van de sprite.
+Soms wil je dat je hitbox kleiner of groter is dan de texture van je sprite. In dit voorbeeld gebruiken we een *custom rectangle* als hitbox:
 
 ```typescript
 class Shark extends PIXI.Sprite {
 
-    customHitbox : PIXI.Rectangle
-
     constructor(texture){
         super(texture)
-      
-        // de hitbox is 200x100, de sprite is 270x135
-        this.customHitbox = new PIXI.Rectangle(0,0,200,100)
-        let hitbox = new PIXI.Graphics()
-        hitbox.lineStyle(2, 0x33FF33, 1)
-        hitbox.drawRect(0 - this.customHitbox.width / 2, 0 - this.customHitbox.height / 2, this.customHitbox.width, this.customHitbox.height)
-        this.addChild(hitbox)
+
+        // custom hitbox - de sprite texture is 270 x 135
+        this.hitArea = new PIXI.Rectangle(0,0,200,100)
+        
+        let area = this.getBounds()
+        let greenBox = new PIXI.Graphics()
+        greenBox.lineStyle(2, 0x33FF33, 1)
+        greenBox.drawRect(0 - area.width / 2, 0 - area.height / 2, area.width, area.height)
+        this.addChild(greenBox)
+
     }
 
-    // vervang de standaard getbounds functie
+    // zorg dat getbounds de hitarea terug geeft
     getBounds() : PIXI.Rectangle {
-        return this.customHitbox
+        return this.hitArea as PIXI.Rectangle
     }
-
+}
 ```
 
 <br>
