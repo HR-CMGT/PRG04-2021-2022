@@ -35,6 +35,7 @@
 - [Collisions](./snippets/collision.md) en [Hitboxes](./snippets/hitbox.md)
 - [Assets Preloader en Sound](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
+- [Timer](./snippets/timer.md)
 
 <br>
 <br>
