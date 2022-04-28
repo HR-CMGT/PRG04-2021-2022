@@ -42,6 +42,16 @@ export class Game {
 
 <br>
 <br>
+<Br>
+
+## Hitbox
+
+[Lees meer over collisions in de **hitbox** tutorial!](./hitbox.md)
+
+
+
+<br>
+<br>
 <br>
 
 ## Links
