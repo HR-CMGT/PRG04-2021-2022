@@ -9,7 +9,8 @@ export class Fish extends PIXI.Sprite {
         super(texture)
         this.x = 400
         this.y = 200
-        this.interactive = true
+        this.interactive = true  // make clickable
+        this.buttonMode = true   // show hand cursor
         this.on('pointerdown', () => this.onClick())
     }
 
@@ -18,6 +19,20 @@ export class Fish extends PIXI.Sprite {
     }
 }
 ```
+<br>
+<br>
+<br>
+
+## HitArea
+
+De [hitArea](https://pixijs.download/dev/docs/PIXI.Sprite.html#hitArea) van een sprite kan je gebruiken om de hitbox voor ***mouse interaction*** aan te passen.
+
+```typescript
+this.hitArea = new PIXI.Rectangle(0,0,200,100)
+```
+
+Als een sprite geen `hitArea` heeft, dan wordt `getBounds()` gebruikt om te zien of de muis de sprite raakt. Je kan de `hitArea` een custom shape geven met [deze plugin](https://www.npmjs.com/package/hitarea-shapes). 
+
 <br>
 <br>
 <br>
