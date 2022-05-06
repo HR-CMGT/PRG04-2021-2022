@@ -24,11 +24,12 @@ let targetPosition = new PIXI.Point(100,200)
 
 ## Snelheid als vector
 
-Je kan de `x,y` snelheid van een sprite opslaan als vector:
+Je kan de `x,y` snelheid van een sprite opslaan als vector. Hier beweeg je elk frame 1 pixel naar rechts en 1 pixel omlaag:
+
 ```typescript
-this.fishSpeed = new PIXI.Point(1,-1)
+this.fishSpeed = new PIXI.Point(1,1)
 ```
-Nu kan je elke update de `speed` vector optellen bij de positie! Let op dat we hier de `position` property van een sprite gebruiken om de `x,y` positie te bepalen.
+In de update tel je de `speed` vector op bij de positie. (*Let op dat we hier de `position` property van een sprite gebruiken om de `x,y` positie te bepalen*)
 
 ```typescript
 export class EvilFish extends PIXI.Sprite {
@@ -37,12 +38,11 @@ export class EvilFish extends PIXI.Sprite {
 
     constructor(texture:PIXI.Texture) {
         super(texture)
-        this.swimSpeed = new PIXI.Point(-1, -1)
+        this.swimSpeed = new PIXI.Point(1, 1)
         this.position.set(800,400)
     }
 
     update(delta: number) {
-        // tel de snelheid op bij de positie
         this.position = this.position.add(this.swimSpeed) as ObservablePoint  
     }
 }
@@ -50,29 +50,37 @@ export class EvilFish extends PIXI.Sprite {
 > ⚠️ de toevoeging `as ObervablePoint` is een typescript eigenaardigheid 😿 
 
 <br>
-<br>
+<Br>
 <br>
 
-## Afstand tussen twee punten
+## Normalize
 
-Het verschil tussen twee `x,y` punten kan je opvragen met `subtract()`. Dit is ook weer een punt met een `x,y` waarde.
+In deze afbeelding zie je dat een snelheid van `1,1` eigenlijk sneller is dan een snelheid van `1,0` of een snelheid van `0,1` (*je legt een grotere afstand af in dezelfde tijd als je snelheid 1,1 is*). 
+
+![vector](./vector.png)
+
+Om dit te corrigeren kan je de `normalize()` functie gebruiken.
 
 ```typescript
-const difference = this.swimTarget.subtract(this.swimPosition)
+const direction = new PIXI.Point(1,1)
+const speed = direction.normalize() // 0.7, 0.7
+this.position = this.position.add(speed) as ObservablePoint 
 ```
-Via *magnitude* kan je de daadwerkelijke afstand in pixels tussen twee punten opvragen:
+
+<br>
+<br>
+<br>
+
+## Naar een doel bewegen
+
+Als je weet naar welk punt je toe wil bewegen, dan kan je met `normalize()` dat `x,y` **doel** vertalen naar een `x,y` **richting**. 
+
+⚠️ Je gebruikt daarvoor het **verschil** tussen je eigen positie en de doel positie!
 
 ```typescript
-const distance = this.swimTarget.subtract(this.swimPosition).magnitude()
+const difference = targetposition.subtract(this.position)
+const speed = difference.normalize()
 ```
-
-<br>
-<br>
-<br>
-
-## Richting bepalen
-
-Als je weet naar welk punt je toe wil bewegen, dan kan je met `normalize()` dat `x,y` **doel** vertalen naar een `x,y` **richting**. Dit geeft  waarden tussen `0` en `1`. Met deze snelheid beweeg je elk frame een heel klein beetje naar het doel. 
 
 In dit voorbeeld bewegen we langzaam richting de muispointer.
 
@@ -88,29 +96,13 @@ export class EvilFish extends PIXI.Sprite {
         this.position.set(800,400)
     }
 
-
     update(delta: number) {
         const mouseposition : PIXI.Point = this.game.pixi.renderer.plugins.interaction.mouse.global
-        const direction = mouseposition.subtract(this.position).normalize()
-
-        this.position = this.position.add(direction) as ObservablePoint
+        const speed = mouseposition.subtract(this.position).normalize()
+        this.position = this.position.add(speed) as ObservablePoint
     }
 }
 ```
-<br>
-<br>
-<br>
-
-## Speed
-
-Als je wat sneller wil gaan kan je de `normalized direction` (*waarden tussen 0 en 1*) weer vermenigvulden met een `speed`:
-
-```typescript
-const speed = 3
-const progress = direction.multiplyScalar(speed)
-this.position = this.position.add(progress) as ObservablePoint
-```
-
 <br>
 <br>
 <br>
@@ -127,8 +119,36 @@ this.angle = Math.atan2(newDirection.y, newDirection.x) * 180 / Math.PI
 <br>
 <br>
 
+## Speed
+
+Als je wat sneller wil gaan dan een snelheid tussen 0 en 1, kan je de richting weer vermenigvulden met een waarde:
+
+```typescript
+const difference = targetposition.subtract(this.position)
+const direction = difference.normalize()
+const speed = direction.multiplyScalar(3)
+this.position = this.position.add(speed) as ObservablePoint
+```
+<br>
+<br>
+<br>
+
+
+## Afstand tussen twee punten
+
+Het verschil tussen twee `x,y` punten kan je opvragen met `subtract()`. Via `magnitude()` kan je de daadwerkelijke afstand in pixels tussen die punten opvragen:
+
+```typescript
+const difference = this.swimTarget.subtract(this.swimPosition)
+const distance = difference.magnitude()
+```
+
+
+<br>
+<br>
+<br>
+
 ## Links
 
 - [Point API](https://pixijs.download/release/docs/PIXI.Point.html)
-- [Code voorbeeld voor Vector Movement](https://github.com/KokoDoko/VectorTanks)
 - [Math plugin](https://api.pixijs.io/@pixi/math.html) en [extras](https://www.runpkg.com/?@pixi/math-extras@6.3.0/README.md)
