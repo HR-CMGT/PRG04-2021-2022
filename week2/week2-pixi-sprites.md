@@ -59,7 +59,19 @@ class Game {
 
 Maak de afbeelding na met animerende bubbles en sprites. Kan je de bubbles omhoog laten bewegen en de fishes naar links?
 
+<br>
+<br>
+<br>
 
+# Opdracht
+
+Als het je is gelukt om sprites te tonen in de Game class, dan kan je met behulp van de PixiJS voorbeelden ook [Text](https://pixijs.io/examples/#/text/text.js) en [Graphics](https://pixijs.io/examples/#/graphics/simple.js) in je Game class plaatsen. 
+
+⚠️ Let goed op:
+
+- Je variabelen worden properties van de class
+- Het `function` keyword kan je weglaten
+- Gebruik `this` binnen de class om de eigen properties en functions aan te roepen.
 
 <br>
 <br>
@@ -67,10 +79,9 @@ Maak de afbeelding na met animerende bubbles en sprites. Kan je de bubbles omhoo
 
 # Opdracht
 
-Als het je is gelukt om sprites te tonen in de Game class, dan kan je met behulp van de PixiJS voorbeelden ook Tekst en Graphics in je Game class plaatsen. 
-
-- [Text](https://pixijs.io/examples/#/text/text.js)
-- [Graphic](https://pixijs.io/examples/#/graphics/simple.js)
+- Laad je eigen afbeeldingen en kijk of je hiermee eigen animatie kan programmeren.
+- Bekijk het voorbeeld van een [tiling sprite](https://pixijs.io/examples/#/sprite/tiling-sprite.js). Kan je hier een animerende achtergrond mee maken?
+- Bekijk wat er gebeurt als je een sprite een *blendmode* geeft met `mysprite.blendMode = PIXI.BLEND_MODES.ADD`
 
 <br>
 <br>
@@ -78,5 +89,8 @@ Als het je is gelukt om sprites te tonen in de Game class, dan kan je met behulp
 
 ## Links
 
-- [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js)
-- [Sprite API](https://pixijs.download/dev/docs/PIXI.Sprite.html)
+- [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js) en [API](https://pixijs.download/dev/docs/PIXI.Sprite.html)
+- [Tiling Sprite](https://pixijs.io/examples/#/sprite/tiling-sprite.js)
+- [Text](https://pixijs.io/examples/#/text/text.js)
+- [Graphic](https://pixijs.io/examples/#/graphics/simple.js)
+- [Blend Modes](https://pixijs.io/examples/#/demos-basic/blendmodes.js)

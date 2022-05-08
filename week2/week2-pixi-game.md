@@ -13,11 +13,50 @@ app.ticker.add((delta) => {
 <br>
 <br>
 <br>
+
+# Werken met classes
+
+In OOP werken we met classes. Een class is een blokje code met specifieke eigenschappen en gedrag. De ***variabelen*** waar je mee wil werken worden ***properties*** van de class. De ***functions*** waar je mee wil werken schrijf je zonder het `function` keyword.
+
+```typescript
+class Game {
+    score = 1
+    startGame() {
+        console.log("starting the game")
+    }
+}
+```
+> Zodra er een Game class is kan je je game aanmaken met `new Game()`!
+
+<br>
+<br>
 <br>
 
-# 🕹 Game Class
+## 🤔 Constructor en THIS keyword
 
-In een OOP game hebben we altijd één `Game` class waarin we de Pixi basics aanmaken. Hierin laden we alle textures voor de hele game, en daarna starten we de game loop.
+De constructor is een functie die automatisch uitgevoerd wordt als er een `new` game wordt aangemaakt. De eigenschappen en functies van de `Game` class kan je aanroepen via het `this` keyword.
+
+```typescript
+class Game {
+    score = 1
+    constructor() {
+        this.score = 4
+        this.showScore()
+    }
+    showScore() {
+        console.log(this.score)
+    }
+}
+```
+
+
+<br>
+<br>
+<br>
+
+# 🕹 Pixi Game Class
+
+We maken één `Game` class waarin we de Pixi basics aanmaken. Hierin laden we alle textures voor de hele game, en daarna starten we de game loop.
 
 ```typescript
 import * as PIXI from "pixi.js"
@@ -52,20 +91,6 @@ export class Game {
 new Game()
 ```
 De `update(delta)` functie is de ***main game loop*** van onze game. Deze wordt 60 keer per seconde aangeroepen. Omdat we met ***Typescript*** werken moet je aangeven dat `delta` een `number` is.
-
-<br>
-<br>
-
-## 🤔 THIS keyword
-
-De eigenschappen en functies van de `Game` class kan je aanroepen via het `this` keyword, bijvoorbeeld:
-
-```typescript
-this.speed = 4
-console.log(this.speed)
-this.doneLoading()
-this.update()
-```
 
 <br>
 <br>
