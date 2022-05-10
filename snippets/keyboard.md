@@ -99,3 +99,11 @@ class App {
     }
 }
 ```
+
+<Br>
+<br>
+<Br>
+
+## 🎮 Gamepad aansluiten
+
+De webbrowser ondersteunt bluetooth gamepads. Lees [deze tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) voor het spelen met de gamepad!
