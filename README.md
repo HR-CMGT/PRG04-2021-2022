@@ -51,10 +51,11 @@
     - [🔥 Learning Pixi](https://github.com/kittykatattack/learningPixi)
     - [📺 PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q) en [YouTube PlayList](https://www.youtube.com/playlist?list=PLapEGS8XnriPHDDbtUFnoY4M17jITNIGh)
     - [Pixi Text Style Designer](https://pixijs.io/pixi-text-style/#)
-- Javascript
+- Game development
     - [MDN Game Development](https://developer.mozilla.org/en-US/docs/Games), [Controller](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API), [Collision Detection](https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection)
     - [Voortgang opslaan met localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
     - [Online Multiplayer met Socket.IO](https://socket.io) of [Lance](https://lance-gg.github.io)
+    - [Create Game Sounds](https://sfxr.me)
     - [Typescript](https://www.typescriptlang.org)
 
 

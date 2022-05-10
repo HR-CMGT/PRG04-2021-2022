@@ -61,5 +61,6 @@ export class Game {
 }
 ```
 
+- [🔥 Genereer je eigen game sounds!](https://sfxr.me)
 - [Pixi Loader Documentatie](https://pixijs.download/release/docs/PIXI.Loader.html)
 
