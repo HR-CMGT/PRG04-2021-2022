@@ -32,7 +32,35 @@ export class Bunny extends PIXI.Sprite {
 
 # Opdracht
 
-Kan je de vissen en bubbles clickable maken? Zodra je klikt zet je de vis heel ver naar rechts zodat het even duurt voordat de vis weer in beeld verschijnt. Doe dit ook voor de bubbles, maar dan verticaal.
+Kan je de vissen clickable maken? Zodra je klikt zet je de vis heel ver naar rechts zodat het even duurt voordat de vis weer in beeld verschijnt. 
+
+<br>
+<br>
+<br>
+
+# Opdracht
+
+Zodra je op een fish klikt, verander je het het texture van de fish in `bones.jpg`. Je kan het texture van een sprite veranderen met `this.texture = ...`. Je zou dat tweede texture ook kunnen meegeven zodra je een `new Fish()` aanmaakt. Maak dan een property waar het bones texture in komt te staan.
+
+```typescript
+export class Fish extends PIXI.Sprite {
+
+    deadTexture : PIXI.Texture
+    
+    constructor(texture: PIXI.Texture, deadTexture: PIXI.Texture) {
+        super(texture)
+        this.deadTexture = deadTexture
+    }
+}
+```
+
+<br>
+<br>
+<br>
+
+# Opdracht
+
+De vis krijgt een property `alive`. Zet deze op `false` als de vis dood is. Als de vis dood is, dan zwemt de vis niet meer naar links. In plaats daarvan zakt de vis naar de bodem, totdat de bodem bereikt is. 
 
 <br>
 <br>
