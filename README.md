@@ -15,7 +15,7 @@
 | 2 | Classes en instances | [Game Class](./week2/week2-pixi-game.md) en [Array van Sprites](./week2/week2-pixi-sprites.md) |  |
 | 3 | Composition | [Fish Class](./week3/week3-pixi-oop.md), [Arrays](./week3/week3-arrays.md), [Click Event](./week3/week3-click.md) | [Spritesheets](./facultatief/spritesheet.md) | |
 | 4 | Encapsulation | [Encapsulation, keyboard controls en collision detection](./week4/week4.md).  | [Vector Math](./facultatief/vector.md) | Zelf evaluatie |
-| 5 | [Game development stappenplan](./week5/stappenplan-breakout.pdf) | Oplopende moeilijkheidsgraad, spawning en object pooling, objecten verwijderen | [Physics](https://github.com/KokoDoko/piximatters) | |
+| 5 | [Game development stappenplan](./week5/stappenplan-breakout.pdf) | Spawning en object pooling, objecten verwijderen. [Toelichting voorbeeldproject Ruimtegruis](https://github.com/KokoDoko/pixidust). | [Physics](https://github.com/KokoDoko/piximatters) | |
 | 6 | Inheritance | Meerdere soorten Fish. Wisselen tussen scenes. | PixiJS Advanced | Peer review |
 | 7 | Game development | Verschillende game mechanics en systems | | |
 | 8 | Game development | Vraaggestuurd | | Eindevaluatie |
