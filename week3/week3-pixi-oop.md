@@ -84,17 +84,11 @@ class Game {
 
 # Opdracht
 
-Maak een Class voor Game, Fish, Background, Bubble
+Maak Classes voor Game, Fish, Background, Bubble
 
-- Maak **twee fishes, twee bubbles en een background** aan in Game.
 - Gebruik `Math.random()` in de `Fish` en `Bubble` classes, om de `this.x` en `this.y` posities random te maken.
 - Gebruik `this.tint = Math.random() * 0xFFFFFF` voor een random kleur in de `Fish` class.
-- Bekijk wat voor gedrag en eigenschappen een sprite nog meer heeft. Kan je die aanroepen via `this` ? Bijvoorbeeld:
-    - this.scale.set(0.5)
-    - this.rotation = 0.5
-    - this.anchor.set(0.5)
-
-[Sprite documentatie](https://pixijs.download/dev/docs/PIXI.Sprite.html)
+- Gebruik `this.scale.set(0.5)` om de schaal random te maken.
 
 <br>
 <br>
@@ -120,5 +114,6 @@ Om een groter aantal fishes en bubbles te kunnen aanmaken hebben we `Arrays` nod
 
 ## Links
 
+- [Sprite documentatie](https://pixijs.download/dev/docs/PIXI.Sprite.html)
 - [PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q)
 - [:movie_camera: Composition in OOP](https://youtu.be/xTOhht5-eg0)
