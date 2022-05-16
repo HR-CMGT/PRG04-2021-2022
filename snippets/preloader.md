@@ -60,7 +60,27 @@ export class Game {
     }
 }
 ```
+> Als je in jouw code `this.loader = new PIXI.Loader()` gebruikt, dan roep je de loader aan met `this.loader`.
+
+<br>
+<br>
+<br>
+
+# Sound Error
+
+⚠️ Als je geluid wil spelen in je game kan je deze error krijgen:
+
+> `Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.`
+
+Dit kan je oplossen door een moment van interactie in je game te bouwen, bijvoorbeeld een START knop waar je op moet drukken voor de game begint.
+
+<br>
+<br>
+<br>
+
+## Links
 
 - [🔥 Genereer je eigen game sounds!](https://sfxr.me)
 - [Pixi Loader Documentatie](https://pixijs.download/release/docs/PIXI.Loader.html)
+- [Browser Sound Policy](https://goo.gl/xX8pDD)
 
