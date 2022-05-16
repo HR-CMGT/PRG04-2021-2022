@@ -40,9 +40,7 @@ Kan je de vissen clickable maken? Zodra je klikt zet je de vis heel ver naar rec
 
 # Opdracht
 
-Zodra je op een fish klikt, verander je het het texture van de fish in `bones.jpg`. De vis krijgt nu een status `dead`. Maak hier een property van. Als de vis dood is, dan zwemt de vis niet meer naar links. In plaats daarvan zakt de vis naar de bodem, totdat de bodem bereikt is. Je kan het texture van een sprite veranderen met `this.texture = ...`.
-
-Als je een Fish class hebt gemaakt geef je het tweede texture ook meteen mee.
+Zodra je op een fish klikt, verander je het het texture van de fish in `bones.jpg`. Je kan het texture van een sprite veranderen met `this.texture = ...`. Je zou dat tweede texture ook kunnen meegeven zodra je een `new Fish()` aanmaakt. Maak dan een property waar het bones texture in komt te staan.
 
 ```typescript
 export class Fish extends PIXI.Sprite {
@@ -55,6 +53,14 @@ export class Fish extends PIXI.Sprite {
     }
 }
 ```
+
+<br>
+<br>
+<br>
+
+# Opdracht
+
+De vis krijgt een property `alive`. Zet deze op `false` als de vis dood is. Als de vis dood is, dan zwemt de vis niet meer naar links. In plaats daarvan zakt de vis naar de bodem, totdat de bodem bereikt is. 
 
 <br>
 <br>
