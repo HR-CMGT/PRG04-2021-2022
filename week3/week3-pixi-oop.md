@@ -53,9 +53,11 @@ export class Fish extends PIXI.Sprite {
 
 ## 😱 Fish toevoegen aan de Game Class
 
-Om de `Fish` in de `Game` te plaatsen kan je nu `new Fish()` gebruiken in plaats van `new PIXI.Sprite()`!
+Om de `Fish` in de `Game` te plaatsen kan je nu `new Fish()` gebruiken in plaats van `new PIXI.Sprite()`! Je hebt het `import` statement nodig zodat je editor weet waar de code van `Fish` staat.
 
 ```typescript
+import { Fish } from "./Fish"
+
 class Game {
     doneLoading() {
         // 👴🏻 Old code
