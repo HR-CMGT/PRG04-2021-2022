@@ -59,22 +59,39 @@ Om de `Fish` in de `Game` te plaatsen kan je nu `new Fish()` gebruiken in plaats
 import { Fish } from "./Fish"
 
 class Game {
+
+    myfish : Fish    // <- nu een Fish in plaats van een PIXI.Sprite
+    loader : PIXI.Loader
+    pixi : PIXI.Application
+
+    constructor(){
+        // bestaande code hier
+    } 
+
     doneLoading() {
         // 👴🏻 Old code
-        this.sprite = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+        this.myfish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
         // 🤩 New code
-        this.sprite = new Fish(loader.resources["fishTexture"].texture!)
+        this.myfish = new Fish(loader.resources["fishTexture"].texture!)
     }
 }
 ```
+
+<br>
+<br>
+<br>
+
 ### 🎬 Animatie
 
 Om de Fish te animeren kan je de `update` functie van de `Fish` aanroepen.
 
 ```typescript
 class Game {
+
+    // bestaande code hier
+
     update(delta:number) {
-        this.sprite.update(delta)
+        this.myfish.update(delta)
     }
 }
 ```
