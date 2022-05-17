@@ -66,16 +66,18 @@ import bgImage from "../images/background.png"
 export class Game {
 
     pixi: PIXI.Application
+    loader : PIXI.Loader
 
     constructor() {
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
         document.body.appendChild(this.pixi.view)
 
-        this.pixi.loader
+        this.loader = new PIXI.Loader()
+        this.loader
             .add("fishTexture", fishImage)
             .add("backgroundTexture", bgImage)
 
-        this.pixi.loader.load(() => this.doneLoading())
+        this.loader.load(() => this.doneLoading())
     }
 
     doneLoading() {
@@ -106,18 +108,19 @@ export class Game {
     pixi: PIXI.Application
     fish:PIXI.Sprite
     anotherFish:PIXI.Sprite
+    loader:PIXI.Loader
 
     constructor() {
-        ...
+        // zie voorbeeld hierboven
     }
 
     doneLoading() {
         console.log("all textures loaded!")
 
-        this.fish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+        this.fish = new PIXI.Sprite(this.loader.resources["fishTexture"].texture!)
         this.pixi.stage.addChild(this.fish)
 
-        this.anotherFish = new PIXI.Sprite(loader.resources["fishTexture"].texture!)
+        this.anotherFish = new PIXI.Sprite(this.loader.resources["fishTexture"].texture!)
         this.pixi.stage.addChild(this.anotherFish)
 
         this.pixi.ticker.add((delta) => this.update(delta))

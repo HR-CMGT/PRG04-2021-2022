@@ -42,10 +42,12 @@ import * as PIXI from "pixi.js"
 export class Game {
 
     pixi: PIXI.Application
+    loader : PIXI.Loader
 
     constructor() {
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
         document.body.appendChild(this.pixi.view)
+
         this.pixi.ticker.add((delta) => this.update(delta))
     }
 
@@ -105,16 +107,17 @@ import { Bunny } from "./Bunny"
 export class Game {
 
     bunny: Bunny
+    loader : PIXI.Loader
 
     constructor() {
-          // load all textures for the whole game
-        this.pixi.loader
+        this.loader = new PIXI.Loader()
+        this.loader
             .add("bunnytexture", bunnyImage)
             .add("enemytexture", enemyImage)
 
-        this.pixi.loader.onProgress.add((p: PIXI.Loader) => this.showProgress(p))
-        this.pixi.loader.onComplete.add(() => this.doneLoading())
-        this.pixi.loader.load()
+        this.loader.onProgress.add((p: PIXI.Loader) => this.showProgress(p))
+        this.loader.onComplete.add(() => this.doneLoading())
+        this.loader.load()
     }
 
     showProgress(p: PIXI.Loader) {
@@ -125,7 +128,7 @@ export class Game {
         console.log("preloader finished")
 
         // create the bunny
-        this.bunny = new Bunny(this.pixi.loader.resources["bunny"].texture!)
+        this.bunny = new Bunny(this.loader.resources["bunny"].texture!)
         this.pixi.stage.addChild(this.bunny)
     }
 

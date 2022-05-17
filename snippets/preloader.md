@@ -19,22 +19,24 @@ import { Water } from "./Water"
 export class Game {
 
     pixi: PIXI.Application
+    loader : PIXI.Loader
 
     constructor() {
         this.pixi = new PIXI.Application({ width: 900, height: 500 })
         document.body.appendChild(this.pixi.view)
 
         // image preloader
-        this.pixi.loader
+        this.loader = new PIXI.Loader()
+        this.loader
             .add("fish", fishImage)
             .add("bubble", bubbleImage)
             .add("coin", coinSoundFile)
             .add("jump", jumpSoundFile)
         
 
-        this.pixi.loader.onProgress.add((loader) => this.showProgress(loader))
-        this.pixi.loader.onError.add((arg) => {console.error(arg)})
-        this.pixi.loader.load(() => this.doneLoading())
+        this.loader.onProgress.add((loader) => this.showProgress(loader))
+        this.loader.onError.add((arg) => {console.error(arg)})
+        this.loader.load(() => this.doneLoading())
     }
 
     showProgress(p:PIXI.Loader){
@@ -45,17 +47,17 @@ export class Game {
         console.log("preloader finished")
 
         // use the images for creating sprites
-        let fish = new Fish(this.pixi.loader.resources["fish"].texture!)
+        let fish = new Fish(this.loader.resources["fish"].texture!)
         this.pixi.stage.addChild(fish)
 
-        let bubble = new Bubble(this.pixi.loader.resources["bubble"].texture!)
+        let bubble = new Bubble(this.loader.resources["bubble"].texture!)
         this.pixi.stage.addChild(bubble)
 
         // use the sounds for creating audio elements
-        let coinSound = this.pixi.loader.resources["coinsound"].data!
+        let coinSound = this.loader.resources["coinsound"].data!
         coinSound.play()
 
-        let jumpSound = this.pixi.loader.resources["coinsound"].data!
+        let jumpSound = this.loader.resources["coinsound"].data!
         jumpSound.play()
     }
 }
