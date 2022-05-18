@@ -49,6 +49,7 @@
 - PIXI
     - [PixiJS Home](https://pixijs.com), [Examples](https://pixijs.io/examples/), [Documentatie](https://api.pixijs.io)
     - [🔥 Learning Pixi](https://github.com/kittykatattack/learningPixi)
+    - [🔥 Pixi Playground](https://pixiplayground.com/#/edit)
     - [📺 PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q) en [YouTube PlayList](https://www.youtube.com/playlist?list=PLapEGS8XnriPHDDbtUFnoY4M17jITNIGh)
     - [Pixi Text Style Designer](https://pixijs.io/pixi-text-style/#)
 - Game development
