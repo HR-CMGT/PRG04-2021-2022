@@ -69,4 +69,5 @@
 
 - [Space Shooter](https://github.com/KokoDoko/pixidust)
 - [Flappy Bird](https://github.com/KokoDoko/pixibird.git)
-- [Physics](https://github.com/KokoDoko/piximatters)
+- [Platform Physics](https://github.com/KokoDoko/piximatters)
+- [Hopper](https://github.com/bpikaar/hopper)
