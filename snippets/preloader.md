@@ -62,7 +62,50 @@ export class Game {
     }
 }
 ```
-> Als je in jouw code `this.loader = new PIXI.Loader()` gebruikt, dan roep je de loader aan met `this.loader`.
+
+<br>
+<br>
+<br>
+
+# Loading bar
+
+Je kan de `progress` waarde gebruiken om een laadbalkje te tekenen! Voeg de volgende code toe aan je Game class:
+
+```typescript
+class Game {
+    
+    graphics:PIXI.Graphics
+
+    constructor(){
+        this.graphics = new PIXI.Graphics()
+        this.pixi.stage.addChild(this.graphics)
+    }
+
+    showProgress(p:PIXI.Loader){
+        console.log(`Loading ${p.progress}%`)
+        let offset = 50
+        let barWidth = (this.pixi.screen.width - (offset * 2)) * (p.progress/100)
+        this.graphics.clear()
+        this.graphics.beginFill(0x32DE49)
+        this.graphics.drawRect(offset, this.pixi.screen.height/2 - 20, barWidth, 40)
+        this.graphics.endFill()
+    }
+
+    doneLoading(){
+        console.log("preloader finished")
+        this.graphics.destroy()
+    }
+
+}
+```
+
+<br>
+<br>
+<br>
+
+# Loader in eigen class 
+
+Je `Game.ts` wordt overzichtelijker als je de [Loader en laadbalkje code in een eigen class zet](https://github.com/KokoDoko/pixidust/blob/main/src/ts/AssetLoader.ts).
 
 <br>
 <br>
