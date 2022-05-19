@@ -58,6 +58,7 @@
     - [Online Multiplayer met Socket.IO](https://socket.io) of [Lance](https://lance-gg.github.io)
     - [Create Game Sounds](https://sfxr.me)
     - [Typescript](https://www.typescriptlang.org)
+    - [Genereer je Class Diagram met markdown](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNp9ks1uwyAMgF8F-bStzQtEO037uewwqVcuTvBatPAjA1Kjru--pBSUZto4IPRhPhvDCXqnCFroBwzhWeOe0UgrrZjGGxoSD00jnlLXDbSCrzocSuTOs44kHr8rX9OiyDuXbFl1ymQeG5tMRyxC75gW-EMftfDTtGDJK4x0d79Ayll6d6i03Rd-vk2Yi6gZm5LPE6kCf5k3fnD-D-F81_91za1udT53qBpKA45rMFagKER2Y_XBFgyxQa2mR7yIJMQDGZLQTkuF_CVB2jkuV_KidHQM7ScOgbaAKbrdaHtoIycqQdePcI06_wCsKKak)
 
 
 
