@@ -136,6 +136,13 @@ Maak een aquarium met vissen en bubbles zoals in deze afbeelding. *Je hoeft geen
 
 - Je kan een `for` loop en `Math.random()` gebruiken om meerdere vissen op random posities te plaatsen.
 - Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur.
+- Een mooiere manier om de sprite een random kleur te geven is met een filter:
+
+```typescript
+const myfilter = new PIXI.filters.ColorMatrixFilter()
+mysprite.filters = [myfilter]
+myfilter.hue(Math.random()*360, false) // HUE filter
+```
 
 <br>
 <br>
@@ -146,3 +153,4 @@ Maak een aquarium met vissen en bubbles zoals in deze afbeelding. *Je hoeft geen
 - [📺 Kennisclip: objecten in OOP](https://youtu.be/FqDhRc4eX40)
 - [Sprite Voorbeeld](https://pixijs.io/examples/#/sprite/basic.js)
 - [Sprite API](https://pixijs.download/dev/docs/PIXI.Sprite.html)
+- [Color Filter](https://pixijs.download/v6.1.0/docs/PIXI.filters.ColorMatrixFilter.html)

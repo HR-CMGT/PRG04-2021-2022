@@ -106,8 +106,15 @@ class Game {
 Maak Classes voor Game, Fish, Background, Bubble
 
 - Gebruik `Math.random()` in de `Fish` en `Bubble` classes, om de `this.x` en `this.y` posities random te maken.
-- Gebruik `this.tint = Math.random() * 0xFFFFFF` voor een random kleur in de `Fish` class.
 - Gebruik `this.scale.set(0.5)` om de schaal random te maken.
+- Gebruik `this.tint = Math.random() * 0xFFFFFF` voor een random kleur in de `Fish` class.
+- Een mooiere manier om een sprite een random kleur te geven is met een `filter`:
+
+```typescript
+const myfilter = new PIXI.filters.ColorMatrixFilter()
+this.filters = [myfilter]
+myfilter.hue(Math.random()*360, false) // HUE filter
+```
 
 <br>
 <br>
@@ -134,5 +141,6 @@ Om een groter aantal fishes en bubbles te kunnen aanmaken hebben we `Arrays` nod
 ## Links
 
 - [Sprite documentatie](https://pixijs.download/dev/docs/PIXI.Sprite.html)
+- [Color Filter](https://pixijs.download/v6.1.0/docs/PIXI.filters.ColorMatrixFilter.html)
 - [PixiJS Classes Youtube Tutorial](https://www.youtube.com/watch?v=NG5qxx9Ij6Q)
-- [:movie_camera: Composition in OOP](https://youtu.be/xTOhht5-eg0)
+- [📺 Composition in OOP](https://youtu.be/xTOhht5-eg0)

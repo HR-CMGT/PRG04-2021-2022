@@ -143,8 +143,15 @@ export class Game {
 Plaats ***twee vissen, twee bubbles en één achtergrond afbeelding*** in de game class. 
 
 - Je kan `Math.random()` gebruiken om de start `x,y` posities van de vissen en bubbles random te maken.
-- Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur van de vis.
 - Laat de vissen naar links bewegen en de bubbles naar boven.
+- Je kan `sprite.tint = Math.random() * 0xFFFFFF;` gebruiken voor een random kleur van de vis.
+- Een mooiere manier om een sprite een random kleur te geven is met een `filter`:
+
+```typescript
+const myfilter = new PIXI.filters.ColorMatrixFilter()
+mysprite.filters = [myfilter]
+myfilter.hue(Math.random()*360, false) // HUE filter
+```
 
 <Br>
 <br>
@@ -162,6 +169,12 @@ Als de vissen links uit beeld zwemmen, moeten ze rechts weer in beeld verschijne
 
 [Ga verder met deel 2: een array van sprites](./week2-pixi-sprites.md)
 
+<br>
+<br>
+<br>
+
+
 ## Links
 
-- [:movie_camera: Classes in OOP](https://youtu.be/TcYRLGJQgMI)
+- [📺 Classes in OOP](https://youtu.be/TcYRLGJQgMI)
+- [Color Filter](https://pixijs.download/v6.1.0/docs/PIXI.filters.ColorMatrixFilter.html)
