@@ -36,6 +36,7 @@
 - [Assets Preloader en Sound](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
 - [Timer](./snippets/timer.md)
+- [Filters](./snippets/filters.md)
 
 <br>
 <br>
