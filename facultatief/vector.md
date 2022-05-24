@@ -1,5 +1,7 @@
 # Vector Math
 
+[Start code vector math les](https://github.com/HR-CMGT/PRG04-pixi-vectormath)
+
 Vector Math helpt je om makkelijker te werken met hoeken en richtingen waarin je sprites moeten bewegen. Een Vector is een object met een **x en y** waarde, in **PixiJS** is dat een `PIXI.Point`.
 
 Om met vector math te werken moet je Pixi Math installeren:
