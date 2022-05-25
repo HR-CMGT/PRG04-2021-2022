@@ -33,7 +33,7 @@
 - [Click Event](./snippets/clickable.md)
 - [Keyboard Controls](./snippets/keyboard.md)
 - [Collisions](./snippets/collision.md) en [Hitboxes](./snippets/hitbox.md)
-- [Assets Preloader en Sound](./snippets/preloader.md)
+- [Preloader, Sound en Fonts](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
 - [Timer](./snippets/timer.md)
 - [Filters](./snippets/filters.md)
