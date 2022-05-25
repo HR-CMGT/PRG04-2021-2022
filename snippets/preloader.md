@@ -50,15 +50,9 @@ export class Game {
         let fish = new Fish(this.loader.resources["fish"].texture!)
         this.pixi.stage.addChild(fish)
 
-        let bubble = new Bubble(this.loader.resources["bubble"].texture!)
-        this.pixi.stage.addChild(bubble)
-
         // use the sounds for creating audio elements
         let coinSound = this.loader.resources["coinsound"].data!
         coinSound.play()
-
-        let jumpSound = this.loader.resources["coinsound"].data!
-        jumpSound.play()
     }
 }
 ```

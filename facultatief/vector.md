@@ -1,5 +1,17 @@
 # Vector Math
 
+## Code Les
+
+- [Start code](https://github.com/HR-CMGT/PRG04-pixi-vectormath)
+- [Finished code](https://github.com/HR-CMGT/PRG04-pixi-vectormath-completed)
+- [Codesandbox Voorbeeld](https://codesandbox.io/s/pixi-evilfish-9h5nig)
+
+<br>
+<br>
+<br>
+
+## Wat is Vector Math?
+
 Vector Math helpt je om makkelijker te werken met hoeken en richtingen waarin je sprites moeten bewegen. Een Vector is een object met een **x en y** waarde, in **PixiJS** is dat een `PIXI.Point`.
 
 Om met vector math te werken moet je Pixi Math installeren:
@@ -142,8 +154,7 @@ Het verschil tussen twee `x,y` punten kan je opvragen met `subtract()`. Via `mag
 const difference = this.swimTarget.subtract(this.swimPosition)
 const distance = difference.magnitude()
 ```
-
-
+    
 <br>
 <br>
 <br>
