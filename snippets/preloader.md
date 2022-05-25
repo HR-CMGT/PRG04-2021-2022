@@ -5,14 +5,13 @@ Om met assets te werken is het eigenlijk noodzakelijk om alle afbeeldingen, gelu
 ```typescript
 import * as PIXI from "pixi.js"
 
-// assets
+// images
 import fishImage from "./images/fish.png"
 import waterImage from "./images/water.jpg"
-
+// sounds
 import coinSoundFile from "url:../sound/coin.mp3"  
 import jumpSoundFile from "url:../sound/jump.mp3"  
-
-// sprite classes
+// classes
 import { Fish } from "./Fish" 
 import { Water } from "./Water"
 
@@ -55,6 +54,32 @@ export class Game {
         coinSound.play()
     }
 }
+```
+
+<br>
+<br>
+<br>
+
+# Fonts
+
+Je kan `.ttf` font bestanden van internet *(bijvoorbeeld dit [arcade game font](./arcade.ttf))* in je `src` folder plaatsen. In je `style.css` bestand moet je het font vervolgens inladen:
+```css
+@font-face {
+  font-family: ArcadeFont;
+  src: url(arcade.ttf);
+}
+```
+Vervolgens kan je het font als `PIXI.TextStyle` gebruiken
+```typescript
+const style = new PIXI.TextStyle({
+    fontFamily: 'ArcadeFont',
+    fontSize: 40,
+    fontWeight: 'bold',
+    fill: ['#ffffff']
+})
+    
+let myText = new PIXI.Text(`Score : 0`, style)
+this.pixi.stage.addChild(myText)
 ```
 
 <br>
