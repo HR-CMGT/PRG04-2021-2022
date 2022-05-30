@@ -15,6 +15,9 @@ const myfilter = new PIXI.filters.ColorMatrixFilter()
 this.filters = [myfilter]
 myfilter.hue(Math.random()*360, false) // HUE filter
 ```
+
+> *Met `tint` kan je ook de kleur van een sprite veranderen, maar die sprite moet dan wit zijn.*
+
 <br>
 <br>
 <br>

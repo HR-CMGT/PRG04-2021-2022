@@ -36,6 +36,7 @@
 - [Preloader, Sound en Fonts](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
 - [Timer](./snippets/timer.md)
+- [UI Class](./snippets/ui.md)
 - [Filters](./snippets/filters.md)
 
 <br>
