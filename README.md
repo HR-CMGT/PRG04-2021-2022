@@ -39,6 +39,7 @@
 - [UI Class](./snippets/ui.md)
 - [Object spawnen, verwijderen en Object Pool](./snippets/remove.md)
 - [Filters](./snippets/filters.md)
+- [Een map verkennen](./snippets/explore.md)
 
 <br>
 <br>
