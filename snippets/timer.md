@@ -25,12 +25,8 @@ class Game {
     spawnCounter:number = 0
     enemies:Enemy[] = []
 
-    constructor() {
-        ...
-    }
-
-    update(){
-        this.spawnCounter++
+    update(delta:number){
+        this.spawnCounter+=delta
         if(this.spawnCounter > 120) {
             this.spawnCounter = 0
             this.enemies.push(new Enemy())
@@ -38,6 +34,7 @@ class Game {
     }
 }
 ```
+<br>
 <br>
 <br>
 
@@ -50,16 +47,13 @@ class Game {
 
     doomClock:number = 3600 
 
-    constructor() {
-        ...
-    }
-
-    update(){
-        this.doomClock--
+    update(delta:number){
+        this.doomClock-=delta
         let secondsLeft = Math.floor(doomClock / 60)
-        console.log(`Only ${secondsLeft} seconds left!`)
         if(this.doomClock <= 0) {
             console.log("Doomsday has come!")
+        } else {
+            console.log(`Only ${secondsLeft} seconds left!`)
         }
     }
 }

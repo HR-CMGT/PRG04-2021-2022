@@ -48,6 +48,8 @@ export class UI extends PIXI.Container {
 }
 ```
 
+> *Zie [de loader snippet](./preloader.md) voor het werken met font files*
+
 <br>
 <br>
 <br>
