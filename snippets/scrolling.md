@@ -19,8 +19,9 @@ export class Background extends PIXI.TilingSprite {
 ```
 <br>
 <Br>
+<br>
 
-Je kan de TilingSprite toevoegen aan de game door de texture, breedte en hoogte door te geven:
+Bij het maken van de TilingSprite moet je de breedte en hoogte doorgeven:
 
 *GAME.TS*
 ```typescript
@@ -36,7 +37,17 @@ class Game {
     }
 }
 ```
+<br>
+<Br>
+<br>
 
+## Parallax scrolling
+
+![parallax](./parallax.gif)
+
+Door meerdere transparante achtergronden met een verschillende snelheid te laten scrollen krijg je een parallax effect.
+
+<br>
 <br>
 <br>
 
