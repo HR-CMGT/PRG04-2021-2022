@@ -31,7 +31,7 @@
 
 - [PixiJS en Classes](./snippets/pixi-oop.md)
 - [Click Event](./snippets/clickable.md)
-- [Keyboard Controls](./snippets/keyboard.md)
+- [Keyboard Controls](./snippets/keyboard.md) en [Top Down Navigatie](./snippets/explore.md)
 - [Collisions](./snippets/collision.md) en [Hitboxes](./snippets/hitbox.md)
 - [Preloader, Sound en Fonts](./snippets/preloader.md)
 - [Scrolling Background](./snippets/scrolling.md)
@@ -39,7 +39,6 @@
 - [UI Class](./snippets/ui.md)
 - [Object spawnen, verwijderen en Object Pool](./snippets/remove.md)
 - [Filters](./snippets/filters.md)
-- [Een map verkennen](./snippets/explore.md)
 
 <br>
 <br>

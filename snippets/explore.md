@@ -1,123 +1,110 @@
-# Exploring a map
+# Top down view
 
-Voor een top-down game wil je vaak rond kunnen lopen door een afbeelding. Dit doe je door de afbeelding te verplaatsen in plaats van de sprite. Dit kan je doen door aan de player de achtergrond door te geven.
+![topdown](./topdown.gif)
+
+Voor een top-down game wil je vaak rond kunnen lopen door een map. De meeste game engines doen dit door een camera te bevestigen aan de player. In Pixi kan je dit effect bereiken door het middelpunt van de `pixi.stage` gelijk te maken aan de speler. *Zorg dat je achtergrond veel groter is dan de stage*. 
+
+[Codesandbox Voorbeeld](https://codesandbox.io/s/map-explorer-on4g4t)
+
+<br>
+<br>
+<br>
 
 GAME.TS
 ```typescript
 class Game {
-    background:PIXI.Sprite
+
     player:Player
+
     doneLoading(){
-        this.background = new PIXI.Sprite(texture)
-        this.player = new Player(texture, this.background)
-    }
-}
-```
-Gebruik de [keyboard controls](./keyboard.md) om de achtergrond te bewegen. Zorg wel dat je achtergrond veel groter is dan de stage. 
-
-PLAYER.TS
-```typescript
-export class Player extends PIXI.Sprite {
-
-    xspeed = 0
-    yspeed = 0
-    background: PIXI.Sprite
-
-    constructor(texture: PIXI.Texture, background: PIXI.Sprite) {
-        super(texture)
-
-        this.anchor.set(0.5)
-        this.x = 350
-        this.y = 250
-
-        // achtergrond
-        this.background = background
+        let background = new PIXI.Sprite(texture)
+        this.pixi.stage.addChild(background)
         
-        // zie de keyboard snippet voor de complete movement code
-        window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
-        window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
-    }
+        this.player = new Player(this, texture)
+        this.pixi.stage.addChild(this.player)
 
-    //
-    // verplaats de achtergrond 
-    //
-    update(delta: number) {
-        this.background.x -= this.xspeed
-        this.background.y -= this.yspeed
+        // start positie van de stage
+        this.pixi.stage.x = this.pixi.screen.width / 2
+        this.pixi.stage.y = this.pixi.screen.height / 2
     }
 }
 ```
-<br>
-<br>
-<br>
 
-## Eindeloos lopen
+Je gebruikt nog steeds de [keyboard controls](./keyboard.md) om de player te bewegen. In dit voorbeeld gebruiken we `clamp` om te zorgen dat de speler niet buiten de map kan lopen.
 
-Als je de achtergrond verandert in een [Tiling Sprite](./scrolling.md) dan kan je eindeloos in alle richtingen door blijven lopen. Let op dat je hierbij de `tile x,y` van de sprite aanpast in plaats van de sprite als geheel.
-
-GAME.TS
-```typescript
-class Game {
-    doneLoading() {
-        this.background = new PIXI.TilingSprite(texture, 1440, 900)
-        this.pixi.stage.addChild(this.background)
-    }
-}
-```
 PLAYER.TS
+
 ```typescript
 class Player {
-    update(delta: number) {
-        this.background.tilePosition.x -= this.xspeed
-        this.background.tilePosition.y -= this.yspeed
+    update(){
+        this.x = this.clamp(this.x + this.xspeed, 0, 1800)  // map width
+        this.y = this.clamp(this.y + this.yspeed, 0, 1300)  // map height
     }
-}
-```
-
-
-<br>
-<br>
-<br>
-
-## Camera effect 🤯
-
-Als je *géén* eindeloos herhalende achtergrond hebt, dan moet de achtergrond stoppen met scrollen als de afbeelding ophoudt. Dat kan je bereiken met de `clamp` functie.
-
-```typescript
-export class Player extends PIXI.Sprite {
-
-    xspeed = 0
-    yspeed = 0
-    background: PIXI.Sprite
-    box:Rectangle
-
-    constructor(background: PIXI.Sprite, texture: PIXI.Texture) {
-        super(texture)
-        this.anchor.set(0.5)
-        this.x = 350
-        this.y = 250
-        this.background = background
-    }    
-    //
-    // verplaats de achtergrond tot aan de rand
-    //
-    update(delta: number) {
-        const stagewidth = 700
-        const stageheight = 500
-        const mapwidth = 1400
-        const mapheight = 900
-
-        this.background.x = this.clamp(this.background.x - this.xspeed, stagewidth-mapwidth, 0)    
-        this.background.y = this.clamp(this.background.y - this.yspeed, stageheight-mapheight, 0)
-    }
-
-    clamp(num:number, min:number, max:number) {
+    clamp(num: number, min: number, max: number) {
         return Math.min(Math.max(num, min), max)
     }
 }
 ```
-Het kan mooi zijn als je figuurtje nog wel naar de rand toe kan lopen als de afbeelding stopt met scrollen! [Zie dit codesandbox voorbeeld](https://codesandbox.io/s/map-explorer-on4g4t). 
 
+Echter, je plaatst nu ook het middelpunt van de `pixi stage` telkens onder de player. Daardoor lijkt de player stil te staan en de kaart te bewegen.
+
+```typescript
+class Player {
+    update(){
+        // plaats nu ook de map onder de speler !
+        this.game.pixi.stage.pivot.set(this.x, this.y)
+    }
+}
+
+```
+Het is nog mooier als je de map ***niet*** onder de speler centreert als de speler bij de rand komt. *De kaart kan dan nooit buiten beeld scrollen, én de speler kan nog wel naar de hoeken lopen*. Zie daarvoor het complete code voorbeeld hieronder.
+
+<br>
+<br>
+<br>
+
+## Compleet code voorbeeld
+
+PLAYER.TS
+```typescript
+export class Player extends PIXI.Sprite {
+
+    xspeed = 0
+    yspeed = 0
+    game:Game
+
+    constructor(game:Game, texture: PIXI.Texture) {
+        super(texture)
+        this.game = game
+        this.anchor.set(0.5)
+        this.x = game.pixi.screen.width/2
+        this.y = game.pixi.screen.height/2
+
+        window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
+        window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
+    }
+
+    update(delta: number) {
+        let mapwidth = 1800
+        let mapheight = 1300
+        let centerx = 350
+        let centery = 250
+
+        // beweeg het karakter over de map. clamp zorgt dat je niet buiten de map kan lopen
+        this.x = this.clamp(this.x + this.xspeed, 0, mapwidth)
+        this.y = this.clamp(this.y + this.yspeed, 0, mapheight)
+
+        // centreer het hele level onder het karakter behalve aan de randen
+        let mapx = this.clamp(this.x, centerx, mapwidth - centerx)
+        let mapy = this.clamp(this.y, centery, mapheight - centery)
+        this.game.pixi.stage.pivot.set(mapx, mapy)        
+    }
+
+    clamp(num: number, min: number, max: number) {
+        return Math.min(Math.max(num, min), max)
+    }
+}
+```
 
 <br>
 <br>
@@ -125,6 +112,5 @@ Het kan mooi zijn als je figuurtje nog wel naar de rand toe kan lopen als de afb
 
 ## Links
 
+- [Codesandbox Voorbeeld](https://codesandbox.io/s/map-explorer-on4g4t)
 - [Keyboard controls](./keyboard.md)
-- [Tiling Sprite](https://pixijs.io/examples/#/sprite/tiling-sprite.js)
-- [Codesandbox voorbeeld camera effect](https://codesandbox.io/s/map-explorer-on4g4t)
