@@ -2,7 +2,7 @@
 
 ![topdown](./topdown.gif)
 
-Voor een top-down game wil je vaak rond kunnen lopen door een map. De meeste game engines doen dit door een camera te bevestigen aan de player. In Pixi kan je dit effect bereiken door het middelpunt van de `pixi.stage` gelijk te maken aan de speler. *Zorg dat je achtergrond veel groter is dan de stage*. 
+Voor een top-down game wil je vaak rond kunnen lopen door een map. De meeste game engines doen dit door een camera te bevestigen aan de player. In Pixi kan je dit effect bereiken door het middelpunt van de `pixi.stage` gelijk te maken aan de speler. *Zorg dat je map veel groter is dan het scherm dat de speler ziet*. 
 
 [Codesandbox Voorbeeld](https://codesandbox.io/s/map-explorer-on4g4t)
 
