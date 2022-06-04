@@ -1,7 +1,8 @@
 # Filters
 
 PixiJS heeft een groot aantal ingebouwde WebGL Filters:
-- [Demo](http://filters.pixijs.download/dev/demo/index.html)
+- [Color Filters](https://www.goodboydigital.com/pixijs/colorMatrix/)
+- [Effect Filters](http://filters.pixijs.download/dev/demo/index.html)
 - [Documentatie](https://pixijs.download/v6.1.0/docs/PIXI.filters.html)
 
 <br>
