@@ -1,6 +1,9 @@
 # Filters
 
-In WebGL kan je gebruik maken van Shaders, in PixiJS heten dit Filters: https://pixijs.download/v6.1.0/docs/PIXI.filters.html
+PixiJS heeft een groot aantal ingebouwde WebGL Filters:
+- [Color Filters](https://www.goodboydigital.com/pixijs/colorMatrix/)
+- [Effect Filters](http://filters.pixijs.download/dev/demo/index.html)
+- [Documentatie](https://pixijs.download/v6.1.0/docs/PIXI.filters.html)
 
 <br>
 <br>
