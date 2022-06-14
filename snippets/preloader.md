@@ -1,6 +1,20 @@
 # Preloader
 
-Om met assets te werken is het eigenlijk noodzakelijk om alle afbeeldingen, geluid, etc. in te laden voordat je game begint. Hiervoor kan je `PIXI.Loader` gebruiken. Bij geluiden plaats je `url:` in het `import` statement.
+- Assets preloaden
+- Sound
+- Fonts
+- Loading bar
+- Loader Class
+
+<br>
+<br>
+<br>
+
+## Assets preloaden
+
+Om met assets te werken is het eigenlijk noodzakelijk om alle afbeeldingen, geluid, etc. in te laden voordat je game begint. Hiervoor kan je `PIXI.Loader` gebruiken. 
+
+> *⚠️ Bij geluiden plaats je `url:` in het `import` statement.*
 
 ```typescript
 import * as PIXI from "pixi.js"
@@ -45,16 +59,61 @@ export class Game {
     doneLoading(){
         console.log("preloader finished")
 
-        // use the images for creating sprites
+        // maak een sprite met een texture
         let fish = new Fish(this.loader.resources["fish"].texture!)
         this.pixi.stage.addChild(fish)
 
-        // use the sounds for creating audio elements
+        // test of het geluid is geladen
         let coinSound = this.loader.resources["coinsound"].data!
         coinSound.play()
     }
 }
 ```
+
+<br>
+<br>
+<br>
+
+# Audio afspelen
+
+Je hoeft een audio element maar één keer aan te maken, je kan het dan vaker blijven afspelen.
+
+```typescript
+class Game {
+    coinSound : HTMLAudioElement
+
+    doneLoading() {
+        this.coinSound = this.loader.resources["coinsound"].data!
+    }
+
+    playerFoundCoin(){
+        this.coinSound.play()
+    }
+}
+```
+<br>
+
+## Audio herstarten
+
+Als een geluid nog speelt, dan doet `play()` niets. In dat geval wil je het geluidje herstarten.
+
+```typescript
+if (this.coinSound.paused) {
+    this.coinSound.play();
+} else {
+    this.coinSound.currentTime = 0
+}
+```
+
+<br>
+
+## Audio autoplay werkt niet
+
+⚠️ Als je bij het starten van je game meteen muziek wil spelen kan je deze error krijgen:
+
+> `Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.`
+
+Dit kan je oplossen door een moment van interactie in je game te bouwen, bijvoorbeeld een START knop.
 
 <br>
 <br>
@@ -126,17 +185,7 @@ class Game {
 
 Je `Game.ts` wordt overzichtelijker als je de [Loader en laadbalkje code in een eigen class zet](https://github.com/KokoDoko/pixidust/blob/main/src/ts/AssetLoader.ts).
 
-<br>
-<br>
-<br>
 
-# Sound Error
-
-⚠️ Als je geluid wil spelen in je game kan je deze error krijgen:
-
-> `Uncaught (in promise) DOMException: play() failed because the user didn't interact with the document first.`
-
-Dit kan je oplossen door een moment van interactie in je game te bouwen, bijvoorbeeld een START knop waar je op moet drukken voor de game begint.
 
 <br>
 <br>
