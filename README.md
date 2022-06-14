@@ -41,6 +41,7 @@
 - [Top Down Navigatie](./snippets/explore.md)
 - [Filters](./snippets/filters.md)
 - [Score doorgeven aan score scherm](./snippets/screens.md)
+- [Levels met oplopende moeilijkheidsgraad](./snippets/level.md)
 
 <br>
 <br>
