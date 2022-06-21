@@ -73,6 +73,19 @@ export class Ship extends PIXI.Sprite {
 }
 
 ```
+
+<br>
+<br>
+<Br>
+
+## Sprite omdraaien
+    
+Als je karakter naar links beweegt wil je vaak de sprite omdraaien. Dit kan je doen door de `x scale` negatief te maken op het moment dat de arrow left of A knop wordt ingedrukt. Maak de scale weer positief als iemand op de arrow right of D knop drukt.
+    
+```typescript
+this.scale.set(-1,1)
+```
+
 <br>
 <br>
 <Br>
