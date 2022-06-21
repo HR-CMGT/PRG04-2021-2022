@@ -119,4 +119,12 @@ class App {
 
 ## 🎮 Gamepad aansluiten
 
-De webbrowser ondersteunt bluetooth gamepads. Lees [deze tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) voor het spelen met de gamepad!
+De webbrowser ondersteunt bluetooth gamepads, inclusief die van de Playstation en XBox. Lees [deze tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Gamepad_API) voor het aansluiten van een gamepad!
+    
+<br>
+<br>
+<Br>
+    
+## Arcade stick controls
+    
+Bekijk [deze tutorial](https://github.com/HR-CMGT/PRG04-2021-2022-controller) voor het aansluiten van een arcade stick voor de CMGT Arcade kast.
