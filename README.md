@@ -42,7 +42,7 @@
 - [Filters](./snippets/filters.md)
 - [Score doorgeven aan score scherm](./snippets/screens.md)
 - [Levels met oplopende moeilijkheidsgraad](./snippets/level.md)
-- [Snapshot van de Cnavas](./snippets/snapshot.md)
+- [Snapshot van de Canvas](./snippets/snapshot.md)
 
 <br>
 <br>
