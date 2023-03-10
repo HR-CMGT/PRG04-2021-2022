@@ -1,6 +1,6 @@
 # PRG04-2021-2022
 
-## ⚠️ Let op, dit is de repository voor het jaar ***2021-2022*** met PIXI. De nieuwe repository met EXCALIBUR komt te staan in 2022-2023 in kwartaal 4.
+## ⚠️ Let op, dit is de repository voor het jaar ***2021-2022*** met PIXI. De nieuwe repository met lesstof voor 2023 komt online te staan in kwartaal 4.
 
 <br>
 <br>
