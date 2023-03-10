@@ -1,11 +1,13 @@
 # PRG04-2021-2022
 
-NOOT: oude repository met PIXI 2021-2022
-nieuwe repository met EXCALIBUR staat in 2022-2023
-
-👾 Object Oriented Game Development met PixiJS en Typescript
+## ⚠️ Let op, dit is de repository voor het jaar ***2021-2022*** met PIXI. De nieuwe repository met EXCALIBUR komt te staan in 2022-2023 in kwartaal 4.
 
 <br>
+<br>
+<br>
+
+Object Oriented Game Development met PixiJS en Typescript
+
 <br>
 <br>
 <br>
